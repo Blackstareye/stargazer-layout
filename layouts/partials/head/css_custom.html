@@ -1,0 +1,17 @@
+{{/* "targetPath" "css/main.css" */}}
+{{ $opts := dict "transpiler" "libsass" }}
+
+{{ if not hugo.IsProduction }}
+  {{/* add sourcemap */}}
+  {{ $opts = merge $opts (dict "enableSourceMap" true )  }}
+{{ end }}
+
+{{- range resources.Match . -}}
+    {{ with resources.Get . | toCSS $opts }}
+      {{ partial "func/head/js_css_integration.html" (dict "content" . "assettype" "css" ) }}
+    {{ end }}
+{{- end -}}
+
+{{/*  {{ with resources.Get "scss/main.scss" | toCSS $opts }}
+  {{ partial "func/head/js_css_integration.html" (dict "content" . "assettype" "css" ) }}
+{{ end }}  */}}

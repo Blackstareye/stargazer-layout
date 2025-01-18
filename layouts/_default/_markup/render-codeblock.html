@@ -1,0 +1,3 @@
+{{ $opts := dict "lineNos" true "style" "catppuccin-frappe" "anchorLineNos" true}}
+{{ $result := transform.HighlightCodeBlock . $opts }}
+{{ $result.Wrapped }}

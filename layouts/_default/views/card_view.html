@@ -1,0 +1,31 @@
+{{ $resolution := "s12" }}
+{{ $img := "" }}
+{{ $hasImg := false }}
+
+{{ $img = partial "func/thumbnail" . | strings.TrimSpace }}
+{{ $resolution = "s12" }}
+{{ if strings.ContainsNonSpace $img }}
+    {{ $resolution = "s6" }}
+    {{ $hasImg = true }}
+{{ else }}
+    {{ $resolution = "s12" }}
+    {{ $hasImg = false }}
+{{ end  }}
+<article class="no-padding">
+<div class="grid no-space">
+    {{ if $hasImg }}
+    <div class="{{ $resolution }}">
+        <img src="{{ $img | safeURL }}" class="" style="max-height: 200px" alt="" srcset="">
+    </div>
+    {{ end }}
+    <div class="{{ $resolution }}">
+          <div class="padding">
+          <h5>{{ .LinkTitle }} </h5>
+          <p>{{ .Summary | strings.Truncate 42 }}</p>
+        <div class="space"></div>
+        <nav>
+          <button class="border round">Mehr</button>
+        </nav>
+    </div>
+</article>
+

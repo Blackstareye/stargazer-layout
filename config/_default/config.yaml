@@ -1,0 +1,16 @@
+# okay here is the thing, config folder dont work at the moment for themes
+
+# if i use mount i need to mount layout and co as well as well
+module:
+  mounts:
+    - source: layouts
+      target: layouts
+    - source: assets
+      target: assets
+    - source: static
+      target: static
+    - source: node_modules
+      target: assets/vendorlibs
+
+
+# sectionPagesMenu: main

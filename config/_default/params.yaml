@@ -1,0 +1,34 @@
+keywords: ""
+useCanonify: True
+
+# Achtung, kein richtiges logging interface mit setting.loglevel > msg.loglevel etc.
+show_infos: 
+  error: True
+  warning: True
+  info: True
+  debug: False
+
+
+regex_folders: 
+    stargazer_layout:
+      vendor: 
+        js: 
+          - "vendorlibs/**/dist/**/*.min.js" #this is the one which is mounted in assets 
+        css: 
+          - "vendorlibs/**/dist/**/*.min.css"
+      custom: 
+        auto_scan_scripts: True # check js,ts, ; TODO to develop
+        auto_scan_style: True  # check scss,css
+        css:
+          - "css/*.css"
+          - "scss/main.scss"
+        js:
+          - "ts/*.ts"
+          - "js/*.js"
+
+
+
+stargazer_layout:
+  lorem: 'ABC'
+  
+  

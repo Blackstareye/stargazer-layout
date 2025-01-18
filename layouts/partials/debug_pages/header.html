@@ -1,0 +1,9 @@
+<nav>
+    {{ $section := where .Site.RegularPages "Type" "eq" "debug_pages" }}
+    <ul>
+
+      {{ range $section }}
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul>
+</nav>

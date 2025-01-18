@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{/*  {{ range site.RegularPages }}
+<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+{{ .Summary }}
+{{ end }}  */}}
+
+<h2>Welcome</h2>
+<h5>The beer is ready!</h5>
+  <img src="https://www.beercss.com/beer-and-woman.svg" class="middle-width responsive round">
+  
+  <div>
+    {{ range site.RegularPages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ .Summary | strings.Truncate 42 }}
+    {{ end }}
+  </div>
+  
+  
+  {{ .Content }}
+  {{/*  {{- partial "sections/hero/index.html" . -}}
+  {{- partial "sections/about.html" . -}}
+  {{- partial "sections/experience.html" . -}}
+  {{- partial "sections/education.html" . -}}
+  {{- partial "sections/projects.html" . -}}
+  {{- partial "sections/achievements.html" . -}}
+  {{- partial "sections/contact.html" . -}}  */}}
+{{ end }}

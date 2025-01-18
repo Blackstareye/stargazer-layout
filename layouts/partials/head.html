@@ -1,0 +1,46 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta
+  name="description"
+  content="{{ .Description | default site.Params.SiteDescription }}"
+/>
+<meta name="title" content="{{ .Title | default site.Params.Title }}" />
+{{/* <meta name="keywords" content="{{ site.Params.keywords }}" /> */}}
+{{ if .Site.Params.useCanonify }}
+  <link rel="canonical" href="{{ site.BaseURL }}" />
+{{ end }}
+
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/twitter_cards.html" . }}
+<title>
+  {{ if .IsHome }}
+    {{ site.Title }}
+  {{ else }}
+    {{ printf "%s | %s" .Title site.Title }}
+  {{ end }}
+
+</title>
+
+{{ partial "head/importmap.html" . }}
+{{ range site.Params.regex_folders }}
+  {{ with .vendor }}
+    {{ range .js }}
+      {{ partial "head/js_vendor.html" . }}
+    {{ end }}
+    {{ range .css }}
+      {{ partial "head/css_vendor.html" . }}
+    {{ end }}
+  {{ end }}
+  {{ with .custom }}
+    {{/*  TODO auto import  */}}
+    {{ range .js }}
+      {{ partial "head/ts_js_custom.html" . }}
+    {{ end }}
+    {{ range .css }}
+      {{ partial "head/css_custom.html" . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/*  {{ partial "head/css.html" . }}  */}}
+{{/*  {{ partial "head/js.html" . }}  */}}

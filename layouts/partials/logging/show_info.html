@@ -1,0 +1,19 @@
+{{/* Param 1 .level level of information e.g debug, info, warning, error */}}
+{{/* Param 2 .inner content of message */}}
+{{/* Optional Param 3 .nowrap dont wrap .inner and dont use pre */}}
+{{/* Optional Param 4 .pre the thing that should be placed before the logging */}}
+
+{{ $level := (index site.Params.show_infos .level) }}
+
+{{ if $level }}
+  {{ if .inner }}
+    <div>
+      {{ if .nowrap | default false }}
+                {{ .inner | default "" }}
+      {{ else }}
+        {{ .pre | default "<span> Debug Message: </span>" | safeHTML }}
+        <pre>{{ .inner | default "" }} </pre>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}

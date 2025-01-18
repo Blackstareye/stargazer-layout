@@ -1,0 +1,57 @@
+{{/* Parameter .content - the asset file */}}
+{{/* Parameter .assettype - css or js */}}
+
+{{/* js build */}}
+{{ $jsbuild := .jsbuilt | default true }}
+{{- $opts := dict "minify" true }}
+
+{{ if not hugo.IsProduction }}
+  {{/* add sourcemap */}}
+  {{ $opts = merge $opts (dict "sourceMap" "linked" "minify" false)  }}
+{{ end }}
+
+{{ if eq .assettype "ts" }}
+  {{ partial "logging/show_info" (dict "level" "debug" "pre" "TS" "inner" (debug.Dump . )) }}
+{{ end }}
+
+{{ if eq .assettype "js" }}
+  {{- with .content }}
+    {{ $context := . }}
+    {{ if $jsbuild }}
+      {{ partial "logging/show_info" (dict "level" "debug" "pre" "Sourcemap" "inner" (debug.Dump $opts )) }}
+      {{ $context = . | js.Build $opts }}
+    {{ end }}
+    {{ partial "logging/show_info" (dict "level" "debug" "pre" "Raw Context" "inner" (debug.Dump $context.RelPermalink )) }}
+    {{- if hugo.IsProduction }}
+      {{ $context = $context | fingerprint }}
+    {{ end }}
+      {{- with $context }}
+        {{ partial "logging/show_info" (dict "level" "debug" "pre" "Context" "inner" (debug.Dump .RelPermalink) ) }}
+        <script
+          src="{{ .RelPermalink }}"
+          type="module"
+          {{- if hugo.IsProduction }}
+            integrity="{{- .Data.Integrity }}" crossorigin="anonymous"
+          {{ end }}
+        ></script>
+      {{- end }}
+  {{- end }}
+{{ end }}
+
+{{/* css build */}}
+{{ if eq .assettype "css" }}
+  {{ with .content }}
+    {{ $prod := . }}
+    {{- if hugo.IsProduction }}
+      {{ $prod = . | minify | fingerprint }}
+    {{ end }}
+    {{ with $prod }}
+      <link
+        rel="stylesheet"
+        href="{{ .RelPermalink }}"
+        integrity="{{ .Data.Integrity }}"
+        crossorigin="anonymous"
+      />
+    {{ end }}
+  {{ end }}
+{{ end }}

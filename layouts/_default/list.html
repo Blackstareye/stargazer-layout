@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+{{/*  row scroll  */}}
+  <div class="">
+    {{/*  {{ range .Pages }}
+              {{ .Render "views/card_view" }}
+              {{ end }}  */}}
+              {{ range .Paginator.Pages }}
+                {{ .Render "views/card_view" }}
+              {{ end }}
+              {{ template "_internal/pagination.html" . }}
+  </div>
+{{ end }}

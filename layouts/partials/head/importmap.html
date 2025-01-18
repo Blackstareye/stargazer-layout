@@ -1,0 +1,26 @@
+
+
+{{/*  Build the map   */}}
+{{ range site.Params.importmap }}
+  {{ range $k, $v := . }}
+    {{ with resources.Get $v }}
+      {{ if hugo.IsProduction }}
+        {{ $v = . | fingerprint }}
+      {{ else }}
+        {{ $v = . }}
+      {{ end }}
+      {{- $.Scratch.SetInMap "jsonImport" $k $v.RelPermalink -}}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ $.Scratch.Add "jsonImport"  (dict) }}
+{{ end }}
+
+
+{{/*  build the source map  */}}
+<script type="importmap">
+  {
+    "imports": {{($.Scratch.Get "jsonImport") | jsonify  }}
+  }
+</script>
+{{- $.Scratch.Delete "jsonImport" -}}

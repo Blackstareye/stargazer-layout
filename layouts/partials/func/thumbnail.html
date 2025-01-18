@@ -1,0 +1,20 @@
+{{/* <a\s*href="(.+?)">(.+?)</a> */}}
+{{/* {{ $founds := findRE `(?s)<img.*?>` .Content 1 }} */}}
+{{/* https://regex101.com/r/C7Sp4Y/1 */}}
+{{/* {{ $founds := strings.FindRESubmatch `<(?s)img.*(src="(.+?)".*)?>` .Content }}
+*/}}
+{{ $founds := strings.FindRESubmatch `<img[^>]*\bsrc=["']([^"']+)["'][^>]*>` .Content }}
+{{/*  RE  */}}
+{{ with $founds }}  
+  {{ warnf "%s" . }}
+  {{/*  get first match  */}}
+  {{ with (index . 0) }}
+  {{/*  get first group match  */}}
+    {{ with (index . 1) }}
+      {{ warnf "entry:%s" . }}
+      {{ . | strings.TrimSpace }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ warnf "%s" "No founds" }}
+{{ end }}

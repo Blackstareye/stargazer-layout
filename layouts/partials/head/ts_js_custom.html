@@ -1,0 +1,11 @@
+{{- range resources.Match . -}}
+  {{/* {{ $extension := (partial "utils/get_extension.html" . ) | strings.TrimSpace }}
+  */}}
+  {{ partial "func/head/js_css_integration.html" (dict "content" . "assettype" "js" "jsbuilt" true) }}
+{{- end -}}
+
+{{/* custom js */}}
+
+{{- with resources.Get "js/main.js" }}
+  {{ partial "func/head/js_css_integration.html" (dict "content" . "assettype" "js") }}
+{{- end }}

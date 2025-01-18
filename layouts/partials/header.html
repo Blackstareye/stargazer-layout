@@ -1,0 +1,69 @@
+<h1>{{ site.Title }}</h1>
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+
+
+
+// beeer css example 
+<header>
+      {{/* {{ partial "header.html" . }} */}}
+      <nav class="left l">
+        <a>
+          <i>home</i>
+          <div>Home</div>
+        </a>
+        <a>
+          <i>search</i>
+          <div>Search</div>
+        </a>
+        <a>
+          <i>share</i>
+          <div>share</div>
+        </a>
+      </nav>
+      <nav class="s m left-align">
+        <button class="circle transparent active">
+          <i>menu</i>
+          <menu class="left no-wrap">
+            <a>
+              <i>home</i>
+              <div>Home</div>
+            </a>
+            <a>
+              <i>search</i>
+              <div>Search</div>
+            </a>
+            <a>
+              <i>share</i>
+              <div>share</div>
+            </a>
+            {{/* <a class="row">
+              <i>home</i>
+              <span>Title</span>
+              </a>
+              <a class="row">
+              <i>home</i>
+              <div class="max">
+              <div>Title</div>
+              <label>Some text here</label>
+              </div>
+              </a>
+              <a class="row">
+              <img class="circle tiny" src="/beer-and-woman.svg">
+              <span>Title</span>
+              </a>
+              <a class="row">
+              <img class="circle tiny" src="/beer-and-woman.svg">
+              <div class="max">
+              <div>Title</div>
+              <label>Some text here</label>
+              </div>
+              </a>
+              */}}
+          </menu>
+        </button>
+        <h5 class="max center-align">Title</h5>
+        <button class="circle transparent">
+          <img class="responsive" src="/favicon.png" />
+        </button>
+      </nav>
+    </header>
