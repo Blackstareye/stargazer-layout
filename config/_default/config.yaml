@@ -9,6 +9,8 @@ module:
       target: assets
     - source: static
       target: static
+    - source: i18n
+      target: i18n
     - source: node_modules
       target: assets/vendorlibs
 

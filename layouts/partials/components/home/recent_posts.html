@@ -1,0 +1,10 @@
+{{ $posts := .Site.RegularPages }}
+{{/*  <div class="grid">
+{{ range where $posts "Section" "not in" site.Params.disabled.sections | first 10}}
+    <div class="s12 m6 l3">
+        {{ .Render "views/card_view" }}
+    </div>
+    
+    {{ end }}
+</div>  */}}
+{{ partial "components/list_presentation/default.html" $posts }}

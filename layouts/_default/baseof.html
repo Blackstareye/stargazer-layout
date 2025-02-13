@@ -7,12 +7,30 @@
     {{ partial "partials/head.html" . }}
   </head>
   <body class="dark">
+    {{ partial "logging/show_info" (dict "level" "debug" "pre" "Debug Message"  "inner" (debug.Dump .Kind )) }}
+    {{ partial "logging/show_info" (dict "level" "debug" "pre" "Debug Message"  "inner" (debug.Dump .Type )) }}
+    {{/* {{ partial "components/navbar.html" . }} */}}
 
-    <main class="responsive">
-      {{ partial "logging/show_info" (dict "level" "debug" "pre" "Debug Message"  "inner" (debug.Dump .Kind )) }}
-      {{ partial "logging/show_info" (dict "level" "debug" "pre" "Debug Message"  "inner" (debug.Dump .Type )) }}
-      {{ block "main" . }}{{ end }}
-    </main>
-    <footer>{{/* {{ partial "footer.html" . }} */}}</footer>
+    <div class="grid">
+      <div class="s12 l2">
+        {{ partial "components/menu/menu.html" (dict "menuID" "main" "page" .) }}
+      </div>
+
+      <div class="s12 l8">
+        <main class="responsive max">
+          {{ block "main" . }}{{ end }}
+        </main>
+      </div>
+      <div class="s12 m12 l2">
+        <aside>
+          {{ block "aside-content" . }}{{ end }}
+        </aside>
+      </div>
+    </div>
+    <footer class="">
+       {{ partial "footer" . }}
+       {{/*  language switch  */}}
+       {{/*  {{ partial "components/home/language_switch" . }}  */}}
+    </footer>
   </body>
 </html>

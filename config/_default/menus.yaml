@@ -1,0 +1,29 @@
+main: 
+  - name: Home
+    pageRef: /
+    pre: <i> Home </i>
+    weight: 10
+
+  - name: Blogs
+    pre: <i> Pages </i>
+    weight: 20
+    #useful for targeting the children
+    identifier: blog_parent 
+  - name: Technical
+    pre: <i> Integration_Instructions </i>
+    parent: blog_parent
+    pageRef: /technique
+    weight: 10
+    identifier: blog_technique
+  - name: Creative
+    pre: <i> Palette </i>
+    pageRef: /creative
+    parent: blog_parent
+    weight: 20
+    identifier: blog_creative
+  # - name: Creative Part lorem 
+  #   pre: <i> Palette </i>
+  #   pageRef: /creative
+  #   parent: blog_creative
+  #   weight: 20
+  #   identifier: blog_creative_part

@@ -1,0 +1,12 @@
+# main: 
+#   - name: Home
+#     pageRef: /
+#     pre: <i> Home </i>
+#     weight: 10
+
+#   - name: Blogs
+#     pre: <i> Pages </i>
+#     pageRef: /technique
+#     weight: 20
+#     #useful for targeting the children
+#     identifier: blog_parent 

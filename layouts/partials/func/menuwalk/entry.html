@@ -1,0 +1,74 @@
+{{- $page := .page }}
+
+{{/*  entry point - iterate through menus and check if  menu has children  */}}
+{{/*  walk the menu  - get the entries with <li></li> , children will be detail elements */}}
+{{- range .menuEntries }}
+  <li>
+    {{ if .HasChildren }}
+      {{- partial "partials/nav_nested_fragment.html" (dict "page" $page "fragment" .) }}
+    {{ else }}
+      <a
+        {{ partial "partials/fragment_no_children.html" (dict "page" $page "fragment" .)  | safeHTMLAttr }}
+        >
+        {{ with .Pre }}  
+                {{- . -}}
+        {{ end }}
+        <span>{{- partial "partials/get_name.html" . -}}</span>
+
+      </a>
+    {{ end }}
+  </li>
+{{ end }}
+
+{{/*  if the navbar has no children  */}}
+{{ define "partials/fragment_no_children.html" }}
+  {{- $page := .page }}
+  {{ with .fragment }}
+    {{- $attrs := dict "href" .URL }}
+    {{- if $page.IsMenuCurrent .Menu . }}
+      {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+    {{- end }}
+    {{ partial "utils/print_attr.html" $attrs }}
+  {{ end }}
+{{ end }}
+
+{{/*  if the navbar has children  */}}
+{{ define "partials/nav_nested_fragment.html" }}
+  {{- $page := .page }}
+  {{ with .fragment }}
+        <details open>
+        <summary class="none">
+            {{- $attrs := dict }}
+            {{- if $page.HasMenuCurrent .Menu . }}
+            {{- $attrs = (dict "class" "active secondary-container round" "aria-current" "page") }}
+            {{- end }}
+            <div
+            {{ partial "utils/print_attr.html" $attrs | safeHTMLAttr }}
+            >
+            {{ with .Pre }}  
+                {{- . -}}
+            {{ end }}
+            <span>{{- partial "partials/get_name.html" . -}}</span>
+            </div>
+        </summary>
+        {{ with .Children }}
+            <ul class="none">
+                {{ partial "func/menuwalk/entry.html" (dict "page" $page "menuEntries" . )}}
+            </ul>
+        {{ end }}
+        </details>
+  {{ end }}
+{{ end }}
+
+
+
+{{/*  util function  */}}
+{{ define "partials/get_name.html" }}
+  {{- $name := .Name }}
+  {{- with .Identifier }}
+    {{- with T . }}
+      {{- $name = . }}
+    {{- end }}
+  {{- end }}
+  {{- $name }}
+{{ end }}

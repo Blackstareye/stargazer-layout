@@ -1,9 +1,13 @@
+
 {{- $validFormats := slice "default" "terse" }}
 
 {{- $msg1 := "When passing a map to the internal pagination template, one of the elements must be named 'page', and it must be set to the context of the current page." }}
 {{- $msg2 := "The 'format' specified in the map passed to the internal pagination template is invalid. Valid choices are: %s." }}
 
-{{- $page := . }}
+{{- $page := .page }}
+{{/*  whether a menu should be applied  */}}
+{{- $withMenu:= .menu }}
+
 {{- $format := "default" }}
 
 {{- if reflect.IsMap . }}
@@ -19,9 +23,18 @@
 
 {{- if in $validFormats $format }}
   {{- if gt $page.Paginator.TotalPages 1 }}
-    <ul class="pagination pagination-{{ $format }}">
-      {{- partial (printf "partials/inline/pagination/%s" $format) $page }}
-    </ul>
+    <nav class="fixed str-pagination bottom center responsive wrap">
+      <ul class="pagination pagination-{{ $format }}">
+        {{- partial (printf "partials/inline/pagination/%s" $format) $page }}
+        {{ if $withMenu }}
+          <li class="s">
+                   <button class="circle transparent" data-ui="#small-menu-dialog">
+                      <i>menu</i>
+                   </button>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
   {{- end }}
 {{- else }}
   {{- errorf $msg2 (delimit $validFormats ", ") }}
@@ -35,23 +48,23 @@
 
     {{- with .First }}
       {{- if ne $currentPageNumber .PageNumber }}
-      <li class="page-item circle">
-        <a href="{{ .URL }}" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="First" class="page-link" role="button"><span aria-hidden="true"><i>First_Page</i></span></a>
       </li>
       {{- else }}
       <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true"><i>First_Page</i></span></a>
       </li>
       {{- end }}
     {{- end }}
 
     {{- with .Prev }}
       <li class="page-item">
-        <a href="{{ .URL }}" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+        <a href="{{ .URL }}" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true"><i>arrow_back</i></span></a>
       </li>
     {{- else }}
       <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true"><i>arrow_back</i></span></a>
       </li>
     {{- end }}
 
@@ -76,22 +89,22 @@
 
     {{- with .Next }}
       <li class="page-item">
-        <a href="{{ .URL }}" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+        <a href="{{ .URL }}" aria-label="Next" class="page-link" role="button"><span aria-hidden="true"><i>arrow_forward</i></span></a>
       </li>
     {{- else }}
       <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true"><i>arrow_forward</i></span></a>
       </li>
     {{- end }}
 
     {{- with .Last }}
       {{- if ne $currentPageNumber .PageNumber }}
       <li class="page-item">
-        <a href="{{ .URL }}" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="{{ .URL }}" aria-label="Last" class="page-link" role="button"><span aria-hidden="true"><i>Last_Page</i></span></a>
       </li>
       {{- else }}
       <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true"><i>Last_Page</i></span></a>
       </li>
       {{- end }}
     {{- end }}
@@ -107,14 +120,14 @@
     {{- with .First }}
       {{- if ne $currentPageNumber .PageNumber }}
       <li class="page-item">
-        <a href="{{ .URL }}" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+        <a href="{{ .URL }}" aria-label="First" class="page-link" role="button"><span aria-hidden="true"><i>First_Page</i></span></a>
       </li>
       {{- end }}
     {{- end }}
 
     {{- with .Prev }}
       <li class="page-item">
-        <a href="{{ .URL }}" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+        <a href="{{ .URL }}" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true"><i>arrow_back</i></span></a>
       </li>
     {{- end }}
 
@@ -139,14 +152,14 @@
 
     {{- with .Next }}
       <li class="page-item">
-        <a href="{{ .URL }}" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+        <a href="{{ .URL }}" aria-label="Next" class="page-link" role="button"><span aria-hidden="true"><i>arrow_forward</i></span></a>
       </li>
     {{- end }}
 
     {{- with .Last }}
       {{- if ne $currentPageNumber .PageNumber }}
       <li class="page-item">
-        <a href="{{ .URL }}" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="{{ .URL }}" aria-label="Last" class="page-link" role="button"><span aria-hidden="true"><i>Last_Page</i></span></a>
       </li>
       {{- end }}
     {{- end }}

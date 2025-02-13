@@ -1,0 +1,107 @@
+# https://gohugo.io/getting-started/configuration/
+# _merge: shallow 
+baseURL: "http://localhost"
+DefaultContentLanguage: "en"
+IsMultiLingual: true
+# contentDir: "content" 
+# languageCode: "de-DE"
+languageCode: "de-DE"
+languages:
+  en:
+    disabled: false
+    # contentDir: content
+    languageCode: en-EN
+    languageDirection: ltr
+    languageName: English
+    weight: 1
+    timeZone: Europe/Berlin
+  de:
+    # contentDir: content
+    disabled: false
+    languageCode: de-DE
+    languageDirection: ltr
+    languageName: Deutsch
+    weight: 1
+    timeZone: Europe/Berlin
+
+
+title: "[DEMO Content] Stargazer Layout"
+#theme: [hugo-profile]
+theme: 
+  - stargazer-layout
+  # - stargazer
+
+# - hugo-profile
+
+# canonifyURLs: true
+enableRobotsTXT: true
+# https://gohugo.io/getting-started/configuration/#configure-minify
+
+# disable categories and taxonomies
+# disableKinds: ["taxonomy"]
+# ignoreErrors: ["error-disable-taxonomy"]
+
+
+
+# description = 'Text about my cool site'
+#   images = ['site-feature-image.jpg']
+#   title = 'My cool site'
+# mediaTypes:
+#   application/json:
+#     suffixes:
+#     - json
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+  page:
+    - "HTML"
+    - "RSS"
+  # content hierarchy - first level is "section"
+
+  # determine if sections should be json or html
+  section:
+    - "HTML"
+    - "JSON"
+
+pagination:
+  pagerSize: 10
+# disqusShortname: your-disqus-shortname
+# googleAnalytics: G-MEASUREMENT_ID
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+# Menus:
+#   main:
+#     # - identifier: blog
+#     #   name: Blog
+#     #   title: Blog posts
+#     #   url: /blogs
+#     #   weight: 1
+#     # - identifier: gallery
+#     #   name: Gallery
+#     #   title: Blog posts
+#     #   url: /gallery
+    #   weight: 2
+    #Dropdown menu
+    # - identifier: dropdown
+    #   title: Example dropdown menu
+    #   name: Dropdown
+    #   weight: 3
+    # - identifier: dropdown1
+    #   title: example dropdown 1
+    #   name: example 1
+    #   url: /#
+    #   parent: dropdown
+    #   weight: 1
+    # - identifier: dropdown2
+    #   title: example dropdown 2
+    #   name: example 2
+    #   url: /#
+    #   parent: dropdown
+    #   weight: 2
+# sectionPagesMenu: main

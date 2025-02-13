@@ -1,0 +1,25 @@
+readingTime:
+  one: '{{ . }} min'
+  other: '{{ . }} mins'
+
+
+beer: Das Bier ist frisch gezapft und angerichtet
+
+wordCount:
+  one: 'Ein Wort'
+  other: '{{ .Count }} Wörter'
+
+see_also: 'Siehe auch'
+
+more: 'Mehr'
+recent: 'Aktuelle Posts'
+
+sections: "Kategorien"
+
+# introduction: "A Theme created by Blackeye from %s"
+# uses: "This Theme uses material 3 theme design by using %s"
+welcome: "Willkommen!"
+dev_introduction: "Dieses Theme wurde erstellt von"
+dev_use_help: "nutzt"
+dev_uses: 'Dieses Theme benutzt %s Design Prinzipien und nutzt das CSS Framework %s and Go Hugo als statischer Website Generator'
+dev_by: "%s von %s"

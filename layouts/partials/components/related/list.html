@@ -1,0 +1,31 @@
+<h4 class="margin"><span class="">{{ T "see_also"}} 👇</span></h4>
+{{/*  {{ range .RegularPages | first 5 }}  */}}
+{{/*  {{ range .Pages.GroupBy "Section" "desc" | first 5 }}  */}}
+{{/*  <pre> {{ debug.Dump .}}</pre>  */}}
+{{ range where .Site.Sections "Section" "not in" site.Params.disabled.sections }}
+{{/*  {{ range .Site.Sections | first 5 }}  */}}
+<h5 class="padding-bottom">{{ .Title | title }}</h5>
+
+  {{/*  <h5 class="padding-bottom">{{ .Key | title }}</h5>  */}}
+   <div class="horizontal-margin stargazer-scroll minimize">
+      {{ range .Pages | first 3 }}
+      {{ .Render "views/related_view" }}
+      {{ end }}
+  </div>
+{{ end }}
+
+
+
+
+
+
+{{/*  {{ $related := .Site.RegularPages.Related . | first 10 }}
+{{ with $related }}
+  <h4 class="margin"><span class="">{{ T "see_also"}} 👇</span></h4>
+  <div class="stargazer-scroll">
+      {{ range . }}
+      {{ .Render "views/related_view" }}
+      {{ end }}
+  </div>
+{{ end }}
+  */}}

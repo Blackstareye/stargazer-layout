@@ -1,0 +1,8 @@
+{{ range where .Site.Sections "Section" "not in" site.Params.disabled.sections }}
+   <h5 class="padding-bottom"><a href="{{.RelPermalink}}">{{ .Title | title }}</a></h5>
+   <div class="horizontal-margin stargazer-scroll minimize">
+      {{ range .Pages | first 3 }}
+      {{ .Render "views/related_view" }}
+      {{ end }}
+  </div>
+{{ end }}

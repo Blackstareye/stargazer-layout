@@ -1,0 +1,19 @@
+.str-nav-drawer {
+    li {
+        list-style: none;
+        a {
+            // align the menu items so that it is completely clickable
+            width:100%;
+            justify-content: start;
+        }
+    }
+}
+
+
+li > details > ul  {
+    list-style-type: none;
+}
+li > details > ul > li > a.active  {
+    text-decoration: underline;
+    color: var(--primary);
+}

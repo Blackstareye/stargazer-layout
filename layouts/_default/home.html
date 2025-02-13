@@ -3,20 +3,47 @@
 <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
 {{ .Summary }}
 {{ end }}  */}}
-
-<h2>Welcome</h2>
-<h5>The beer is ready!</h5>
-  <img src="https://www.beercss.com/beer-and-woman.svg" class="middle-width responsive round">
+  {{ partial "components/anchor.html" (dict "up" true) }}
+  {{ partial "components/home/header.html" . }}
   
-  <div>
-    {{ range site.RegularPages }}
+  {{ with site.Params.stargazer_layout.demo }}
+  <div class="center center-align">
+    <div class="medium-space"></div>
+    {{ if .branding }}
+    {{ partial "components/dev/demo_block" . }}
+    {{ end }}
+  </div>
+
+  {{ end }}
+  <h2 class="center-align str-text-fx">{{ T "welcome" }}</h2>
+  
+  <h4 class="center-align str-text-fx">
+    {{ T "recent" }}
+  </h4>
+    <div>
+    {{ partial "components/home/recent_posts" . }}
+    {{/*  {{ range site.RegularPages }}
     <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
     {{ .Summary | strings.Truncate 42 }}
-    {{ end }}
+    {{ end }}  */}}
+  </div>
+
+
+  <h4 class="center-align str-text-fx">
+    {{ T "sections" }}
+  </h4>
+  <hr>
+
+  <div>
+    {{ partial "components/home/sections" . }}
+    {{/*  {{ range site.RegularPages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ .Summary | strings.Truncate 42 }}
+    {{ end }}  */}}
   </div>
   
   
-  {{ .Content }}
+  
   {{/*  {{- partial "sections/hero/index.html" . -}}
   {{- partial "sections/about.html" . -}}
   {{- partial "sections/experience.html" . -}}
@@ -24,4 +51,25 @@
   {{- partial "sections/projects.html" . -}}
   {{- partial "sections/achievements.html" . -}}
   {{- partial "sections/contact.html" . -}}  */}}
+
+  {{ with site.Params.stargazer_layout.demo }}
+       {{ if .beer }}
+       <div class="medium-space"></div>
+       <div class="center center-align">
+
+         <h3 class="underline"> 🍺 {{ T "beer"}} 🍻</h3>
+         <img src="https://www.beercss.com/beer-and-woman.svg" class="responsive round">
+         <div class="center center-align">
+        </div>
+      </div>
+          {{ end }}
+  {{ end }}
 {{ end }}
+
+
+{{ define "aside-content" }}
+{{ partial "components/circle_menu" . }}
+{{ partial "components/anchor.html" (dict "up" false) }}
+{{ end }}
+
+{{/*  {{define "footer-content"}}{{ end}}  */}}

@@ -1,0 +1,5 @@
+<a class="underline primary-text" href="{{ .Destination | safeURL }}"
+  {{- with .Title }} title="{{ . }}"{{ end -}}
+>
+  {{- with .Text }}{{ . }}{{ end -}}
+</a>

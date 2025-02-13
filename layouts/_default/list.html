@@ -7,9 +7,16 @@
     {{/*  {{ range .Pages }}
               {{ .Render "views/card_view" }}
               {{ end }}  */}}
-              {{ range .Paginator.Pages }}
-                {{ .Render "views/card_view" }}
-              {{ end }}
-              {{ template "_internal/pagination.html" . }}
+              {{ partial "components/list_presentation/default.html" .Paginator.Pages }}
+              {{ $format := "terse"}}
+              {{ partial "pagination/default.html" (dict "page" . "menu" true "format" $format) }}
   </div>
+  
+  
 {{ end }}
+
+{{ define "aside-content" }}
+  {{ partial "components/related/list" . }}
+{{ end }}
+
+

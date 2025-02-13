@@ -33,82 +33,192 @@ functions. It can be used as a standalone or as a bundle with Stargazer
 ## 🚀 Features
 
 -   minify and fingerprint on `prod` 🚀 build
+
 -   add css and js as you like
+
 -   enable node module support with vendor folders
+
 -   discover [beer css](https://www.beercss.com/) - full material design
     ahead!
+
 -   add **js es-modules** with and use it in your own modules with the
     **importmap**
+
     -   ✅ works also with `fingerprint and minify`
+
 -   🔨💻 logging functionality integrated, control it with
     info,warning,debug,error flags :\>
 
+-   pagination with [beer css](https://www.beercss.com/) 🍺\
+
+-   languages: **en** and **de** available and already translated 🌍\
+
+-   🌗 dark and light mode toggle included\
+
+-   choose your theme using a **Color** with the param `themeColor` 🎨\
+
+-   responsive pages and views -- a beautiful blog experience on
+    desktop, tablet, and mobile 📱💻🖥️
+
+### Blogging
+
+[Demo](https://demo.layout.stargazer.blackeyeprojects.de/) \* home page
+contains `recent posts`, and organizes content in a beutiful grid \* all
+what you need: `list` , `single` , `tags`, `home` page is created
+
 ### Soon
 
--   **soon:** pagination with beercss
 -   **soon:** includes
     [snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets)
     for vs code
     -   for logging with `logging`
 -   **soon:** autodetect scss,ts,js and css in your asset folder
 
-## Configuration
+## Screenshots
 
-### SEO
+### Homepage
+
+![alt text](assets/04_Screenshots/image-2.png)
+
+### Posts
+
+![alt text](assets/04_Screenshots/image-1.png)
+
+### Recent Posts
+
+![recentPosts](assets/04_Screenshots/image.png)
+
+## ⚙️ Configuration
+
+### 🔍 SEO
 
 Canonical Link:
 [Wiki](https://en.wikipedia.org/wiki/Canonical_link_element)
 
 ``` yaml
-# if this is true, the website sets a canon link 
+# If enabled, the website sets a canonical link  
 # <link rel="canonical" href="http://example.com/">
 useCanonify: True
 ```
 
-and the usual [hugo
-configs](https://gohugo.io/getting-started/configuration/#configuration-file):
+And the usual [Hugo
+configurations](https://gohugo.io/getting-started/configuration/#configuration-file)
+apply.
 
-### Custom SCSS/ CSS / JS / TS
+### 🚫 Deactivate Demo Content
 
-`node_modules` will be added automatically with the wildcard below. if
-you want to have a more `fine grained` control you can adjust the
-wildcard or use **explizit** files
+``` yaml
+demo: 
+    beer: false
+    branding: false
+```
 
-Dont change the ones marked with `!!!`
+### 🎨 Set Theme
+
+Define the primary color and generate a complete theme:
+
+``` yaml
+themeColor: '#44d8f1'
+```
+
+### 📝 Define Menus
+
+For more details, check out the [Hugo Menu
+documentation](https://gohugo.io/templates/menu/).
+
+``` yaml
+# Example config/menus.yaml
+main: 
+  - name: Home
+    pageRef: /
+    pre: <i> Home </i>
+    weight: 10
+  - name: Blogs
+    pre: <i> Pages </i>
+    weight: 20
+    identifier: blog_parent  
+  - name: Technical
+    pre: <i> Integration Instructions </i>
+    parent: blog_parent
+    pageRef: /technique
+    weight: 10
+    identifier: blog_technique
+  - name: Creative
+    pre: <i> Palette </i>
+    pageRef: /creative
+    parent: blog_parent
+    weight: 20
+    identifier: blog_creative
+```
+
+### ❌ Disable Content Types
+
+Prevent specific content types from appearing in `recent posts`,
+`related posts`, and `categories` pages.
+
+``` yaml
+disabled:
+  sections: 
+      - testing
+      - _index
+```
+
+### 🚀 Set Your Brand
+
+``` yaml
+brand: 
+  # Logo settings (image src and alt text)
+  logo:
+    src: "images/logo/stargazer/stargazer_layout_big.png"
+    alt: "brand_logo"
+  # Brand title (displayed on tablet and mobile view)
+  title: Demo-Manier
+# will be displayed in the Footer in the Copyright tag if set
+owner: FooMaker
+```
+
+### Set the owner
+
+### 🎭 Custom SCSS / CSS / JS / TS
+
+`node_modules` are automatically included with the wildcard below.\
+For finer control, adjust the wildcard or specify files explicitly.
+
+⚠️ **Do not modify sections marked with `!!!`**
 
 ``` yaml
 regex_folders: 
     your_site:
       vendor:  #!!!
         js: # !!!
-          - "vendorlibs/**/dist/**/*.min.js" #this is the one which is mounted in assets 
-          # explizit files
-          - "vendorlibs/my-explizit-file.js"
+          - "vendorlibs/**/dist/**/*.min.js" # Mounted in assets  
+          # Explicit files  
+          - "vendorlibs/my-explicit-file.js"
         css: # !!!
           - "vendorlibs/**/dist/**/*.min.css"
       custom: # !!!
-        # put your custom css here
+        # Custom CSS  
         css: # !!!
           - "css/*.css"
           - "scss/main.scss"
-        # put your custom css here
+        # Custom JS  
         js: # !!!
           - "ts/*.ts"
           - "js/*.js"
 ```
 
-### Importmap - Using your modules in your custom module
+### 🛋️ Importmap - Using Modules in Your Custom Module
 
-You can use modules like you are used to do it in other frameworks
+Use modules just like in other frameworks.
 
-Here an example for a `vue` web app with a component `ChildComp`
+Example: Vue web app with a `ChildComp` component
 
 ``` yaml
 importmap: # !!!
   your_site: 
-    # vue
+    # Vue  
     vue: /vendorlibs/vue/dist/vue.esm-browser.prod.js
-    # component
+    # Component  
     compact_child: "js/ChildComp.js"
 ```
 
@@ -116,49 +226,52 @@ importmap: # !!!
 import * from "compact_child";
 ```
 
-> \[!IMPORTANT\] it is important that the file is actually **on** the
-> path you configured. If you put your js in `assets/js/foo/bar.js` then
-> the path is `js/foo/bar.js`
+> 🔥 **Important:**\
+> Ensure the file exists at the configured path.\
+> If your JS file is in `assets/js/foo/bar.js`, then the path should be
+> `js/foo/bar.js`.
 
-### Controll logging
+### 🛠️ Control Logging
 
-> \[!NOTE\] This is more a feature that helps to develop and have "some"
-> logging structure
+> 📝 **Note:**\
+> This feature helps with development and provides a structured logging
+> system.
 
-You can debug your page using the snippet
+Enable debugging with this snippet:
 
 ``` go
 {{ partial "logging/show_info" (dict "level" "debug" "pre" "Debug Message"  "inner" (debug.Dump .) }}
 ```
 
-#### Parameters
+#### 🔹 Parameters
 
--   level: level of logging
--   (optional) pre: a prefix that should be printed before the debug
-    message. This is helpful for finding your debug info in your website
--   inner: the actual message
+-   `level`: The logging level\
+-   *(optional)* `pre`: A prefix before the debug message (helps in
+    locating logs)\
+-   `inner`: The actual message
 
-#### Configure whether the message should be displayed or not
+#### 🛠️ Configure Log Visibility
 
-you can control this by setting the following values in your config:
+Control which messages are displayed with:
 
 ``` yaml
 show_infos: 
   error: True
   warning: True
   info: True
-  debug: False # messages with level "debug" are not visible
+  debug: False # "debug" messages are hidden
 ```
 
-> \[!IMPORTANT\] for Devs atm, there is no **logging** level in the
-> usual cascading style of logging frameworks. You have to controll the
-> visibility of your message level by level.
+> ⚠️ **Important for Devs:**\
+> Currently, there's no **logging hierarchy** as in traditional logging
+> frameworks.\
+> You must manually enable/disable log levels as needed.
 
 ## 🎯 Installation
 
-### Quickstart
+### ⏫ Quickstart
 
-just copy this and paste it in your working directory
+Just copy and paste this into your working directory:
 
 ``` sh
 hugo new site my-site
@@ -171,26 +284,30 @@ cd ../..
 hugo serve
 ```
 
-### Install Theme
+### 🚀 Install Theme
 
-As Git Submodule Inside the folder of your Hugo site run:
+#### As a Git Submodule
+
+Inside your Hugo site folder, run:
 
 ``` sh
-git submodule add  https://github.com/Blackstareye/stargazer-layout themes/stargazer-layout
+git submodule add https://github.com/Blackstareye/stargazer-layout themes/stargazer-layout
 
-# go to the directory
+# Go to the theme directory
 cd themes/stargazer-layout
 npm install
 ```
 
-Put this in your config:
+#### Add Theme to Config
+
+Include this in your Hugo config:
 
 ``` yaml
 theme: 
   - stargazer-layout
 ```
 
-or add it to your other themes
+Or, if you are using multiple themes:
 
 ``` yaml
 theme: 
@@ -198,20 +315,22 @@ theme:
   - stargazer-layout
 ```
 
-if you prefer toml:
+For **TOML** users:
 
 ``` toml
 theme=["stargazer-layout"]
 ```
 
-For more information read the official [Quick
-Start](https://gohugo.io/getting-started/quick-start/) guide of Hugo.
+For more details, check out Hugo's official [Quick
+Start](https://gohugo.io/getting-started/quick-start/) guide.
 
-Thats it, you are all set. 🙌
+That's it! You're all set. 🙌
 
-#### Run it
+### 🌟 Run It
 
-    hugo serve
+``` sh
+hugo serve
+```
 
 ## 🛠️ Tech-Stack
 

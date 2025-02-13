@@ -42,5 +42,12 @@
   {{ end }}
 {{ end }}
 
+<script>
+  var themeColor = null;
+  {{ with site.Params.themeColor }}
+        themeColor = {{ . }};
+  {{ end }}
+</script>
+
 {{/*  {{ partial "head/css.html" . }}  */}}
 {{/*  {{ partial "head/js.html" . }}  */}}

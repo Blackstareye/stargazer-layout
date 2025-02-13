@@ -1,0 +1,61 @@
+<article class="large middle-align center-align">
+    <div class="grid">
+      <div class="s11 m11 l11">
+        <h4 class="center-align str-text-fx">
+          <p>{{ T "dev_introduction" }}</p>
+        </h4>
+      </div>
+      <div class="s5 m5 l5">
+        {{ partial "partials/inline/column" .oldschoolmanier }}
+      </div>
+      <div class="s2 m2 l2">
+        <p>mit Hilfe von </p>
+        <p>🧡</p>
+        <p><i>Handshake</i></p>
+      </div>
+      <div class="s5 m5 l5">
+        <div class="grid">
+          <div class="s6 m6 l6">
+            {{ partial "partials/inline/column" .gohugo }}
+          </div>
+          <div class="s6 m6 l6">
+            {{ partial "partials/inline/column" .beercss }}
+          </div>
+        </div>
+    </div>
+    <div class="s12 m12 l12">
+        {{ partial "partials/inline/description" . }}
+    </div>
+    </div>
+</article>
+
+{{ define "partials/inline/column" }}
+    {{- $company := .title.company }}
+    {{- $pageref := .page }}
+    {{ with .logo }}
+        <a href="{{- $pageref -}}">
+        <img class="round large" src="{{ . | safeURL }}" alt="{{- $company -}}-brandlogo" />
+        </a>
+    {{ end}}
+    <p>
+        <a href="{{ .page }}"
+        ><span class="center-align"
+            >
+            {{ with .title.user }}
+                {{ printf (T "dev_by") . $company }}
+            {{ else }}
+                {{- $company -}}
+            {{ end }}
+            </span
+        ></a
+        >
+    </p>
+{{end }}
+
+{{ define "partials/inline/description" }}
+  <p>
+    {{- $material := (printf "<a class='primary-text' href='%s'>%s</a>" .material.page .material.title.company) -}}
+    {{- $beercss := (printf "<a class='primary-text' href='%s'>%s</a>" .beercss.page .beercss.title.company) -}}
+    {{ (printf (T "dev_uses") $material $beercss) | safeHTML }}
+  </p>
+{{ end }}

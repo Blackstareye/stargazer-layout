@@ -1,0 +1,18 @@
+{{/*  
+<div class="center-align">
+    <ul>
+    {{ range $.Site.Home.AllTranslations }}
+    <li><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
+    {{ end }}
+    </ul>
+</div>
+  */}}
+    <button class="primary-border small-width center" data-ui="#lang-menu">
+      <span>Default</span>
+      <i>arrow_drop_down</i>
+      <menu id="lang-menu">
+        {{ range $.Site.Home.AllTranslations }}
+        <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+      </menu>
+    </button>

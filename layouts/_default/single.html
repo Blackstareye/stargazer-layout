@@ -1,10 +1,64 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+<style>
+  :root {
+    --background-img : url({{ .Params.background | default "" }});
+    {{ if .Params.backgroundblurpx  }}
+    --background-blur-px: {{ .Params.backgroundblurpx }}
+    {{ end }}    
+  }
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  .post-background {
+    background-image: var(--background-img);
+    background-size: cover;
+  }
 
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  .background-post {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .background-filter {
+    backdrop-filter: blur(var(--background-blur-px, 10px));
+  }
+</style>
+
+<div class="
+  post-background
+{{ if .Params.background | default false }}
+   round
+{{ end }}
+
+">
+  
+  <article class="padding scroll round
+  {{ if .Params.background  }}
+  background-post 
+  {{ if .Params.backgroundfilter  }}
+    background-filter
+  {{ end }}
+  {{ end }}
+  ">
+    {{/*  Upwards anchor  */}}
+    {{ partial "components/anchor.html" (dict "up" true) }}
+
+    <header class="transparent">
+      <h5 class="top-margin">
+        {{ .Title }}
+      </h5>
+      {{ partial "components/title_meta" (dict "page" . "use_chip" true) }}
+    </header>
+    
+    {{ .Content }}
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    {{/*  Downwards anchor  */}}
+    {{ partial "components/anchor.html" (dict "up" false) }}
+
+  </article>
+</div>
+
+{{ end }}
+
+
+{{ define "aside-content" }}
+{{ partial "components/related/single" . }}
+{{ partial "components/circle_menu" . }}
 {{ end }}

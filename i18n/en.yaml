@@ -1,0 +1,22 @@
+readingTime:
+  one: '{{ . }} min'
+  other: '{{ . }} mins'
+
+beer: The beer is freshly tapped and ready
+
+wordCount:
+  one: 'One word'
+  other: '{{ .Count }} words'
+
+see_also: 'See also'
+
+more: 'More'
+recent: 'Recent Posts'
+
+sections: "Categories"
+
+welcome: "Welcome!"
+dev_introduction: "This theme was created by"
+dev_use_help: "nutzt"
+dev_uses: 'This theme uses %s design principles and uses %s as CSS Framework and Go Hugo as Static Website Generator'
+dev_by: "%s by %s"
