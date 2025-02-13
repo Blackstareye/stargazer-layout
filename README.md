@@ -51,7 +51,7 @@ functions. It can be used as a standalone or as a bundle with Stargazer
 -   🔨💻 logging functionality integrated, control it with
     info,warning,debug,error flags :\>
 
--   pagination with [beer css](https://www.beercss.com/) 🍺\
+-   pagination with [beer css](https://www.beercss.com/) 🍺
 
 -   languages: **en** and **de** available and already translated 🌍\
 
@@ -64,9 +64,12 @@ functions. It can be used as a standalone or as a bundle with Stargazer
 
 ### Blogging
 
-[Demo](https://blackstareye.github.io/stargazer-layout/) \* home page
-contains `recent posts`, and organizes content in a beutiful grid \* all
-what you need: `list` , `single` , `tags`, `home` page is created
+[Demo](https://blackstareye.github.io/stargazer-layout/)
+
+-   home page contains `recent posts`, and organizes content in a
+    beutiful grid
+-   all what you need: `list` , `single` , `tags`, `home` page is
+    created
 
 ### Soon
 
