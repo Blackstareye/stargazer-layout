@@ -1,10 +1,9 @@
-{{ hugo.Store.Set "show_categories" false }}
 <div class="grid">
     {{ range where . "Section" "not in" site.Params.disabled.sections | first 10}}
-    <div class="s12 m6 l3">
-        {{ .Render "views/card_view" }}
-    </div>
-    
+    <div class="s12 m6 l4">
+            {{ hugo.Store.Set "show_categories" false }}
+            {{ .Render "views/card_view" }}
+        </div>
     {{ end }}
 </div>
 {{ hugo.Store.Delete "show_categories" }}

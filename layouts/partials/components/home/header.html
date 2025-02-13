@@ -1,16 +1,18 @@
 <h1 class="center-align str-text-fx"> {{ .Title | default site.Title | title }}  </h1>
-<article class="large middle-align center-align">
+<article class="large middle-align center-align padding">
         <div class="grid">
-        <div class="s6 m6 l6">
-          <div class="middle center large-padding">
-              {{ partial "components/brand/get_brand_logo" (dict "page" site "dim" "400x400" "classes" "responsive") }}
+        <div class="l m m6 l6">
+          <div class="large-padding center middle">
+              {{ partial "components/brand/get_brand_logo" (dict "page" site "dim" "400x400" "classes" "responsive large-padding") }}
           </div>
         </div>
-          <div class="s6 m6 l6">
-            <section class="m l middle large-text">
-              {{ .Content }}
-            </section>
-            <section class="s middle small-text">
+        <div class="s s12">
+          <div class="large-padding center middle">
+              {{ partial "components/brand/get_brand_logo" (dict "page" site "dim" "500x500" "classes" "large") }}
+          </div>
+        </div>
+          <div class="s12 m6 l6">
+            <section class="middle small-text max">
               {{ .Content }}
             </section>
           </div>

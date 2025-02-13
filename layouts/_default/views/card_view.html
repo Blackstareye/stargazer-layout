@@ -12,27 +12,27 @@
   {{ $hasImg = false }}
 {{ end }}
 <article class="medium round">
-    <div class="grid no-space">
-        {{ if $hasImg }}
-        <div class="{{ $resolution_left }} small-height padding">
-            <img src="{{ $img | safeURL }}" class="large middle" alt="" srcset="">
-        </div>
-        {{ end }}
+  <div class="grid">
+    {{ if $hasImg }}
+      <div class="{{ $resolution_left }} small-height middle center-align">
+        <img src="{{ $img | safeURL }}" class="medium" alt="" srcset="" />
+      </div>
+    {{ end }}
     <div class="{{ $resolution_right }}">
       <div class="padding">
         <h5><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h5>
         {{ $show_cat := hugo.Store.Get "show_categories" | default false }}
-        {{ partial "components/title_meta" (dict "page" . "use_chip" false "show_categories" true ) }}        
-        <div class="tiny-height">{{ .Summary | strings.Truncate 20 }}</div>
+        {{ partial "components/title_meta" (dict "page" . "use_chip" false "show_categories" true ) }}
+        <div class="tiny row wrap">{{ .Summary | strings.Truncate 20 }}</div>
       </div>
       <div class="space"></div>
     </div>
-</div>
-<div class="absolute bottom padding">
+  </div>
+  <div class="absolute bottom padding">
     <nav>
-    <a class="border round chip medium primary" href="{{ .RelPermalink }}"
-      >{{ T "more" }}</a
-    >
-  </nav>
-</div>
+      <a class="border round chip medium primary" href="{{ .RelPermalink }}"
+        >{{ T "more" }}</a
+      >
+    </nav>
+  </div>
 </article>
