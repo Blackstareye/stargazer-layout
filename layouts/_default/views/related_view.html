@@ -1,0 +1,23 @@
+{{ $img := "" }}
+{{ $hasImg := false }}
+{{ $img = partial "func/thumbnail" . | strings.TrimSpace }}
+{{ if strings.ContainsNonSpace $img }}
+    {{ $hasImg = true }}
+{{ else }}
+    {{ $hasImg = false }}
+{{ end  }}
+
+<article class="small">
+  <a href="{{ .RelPermalink }}">
+      <div class="row">
+          {{ if $hasImg }}
+          <img class="circle large" src="{{ $img | safeURL }}">
+          {{ end }}
+          <div class="max">
+              <h5>{{ .LinkTitle }} </h5>
+              {{ partial "components/title_meta" (dict "page" . "use_chip" false) }}         
+              <p>{{ .Summary | strings.Truncate 42 }}</p>
+            </div>
+        </div>
+    </a>
+</article>

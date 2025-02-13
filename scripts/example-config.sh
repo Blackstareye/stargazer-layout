@@ -1,0 +1,1 @@
+deploy_server="foo@bar:/lorem/ipsum"

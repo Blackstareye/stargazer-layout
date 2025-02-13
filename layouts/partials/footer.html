@@ -1,1 +1,17 @@
-<p>Copyright {{ now.Year }}. All rights reserved.</p>
+<div>
+  <p class="small-text max center-align">
+    ©{{ now.Year }}. All rights reserved. 
+    {{with site.Params.owner }}
+     - Owner:  {{.}} 
+  {{end}}
+  </p>
+  
+  <div class="row center-align no-margin">
+    {{ if site.Params.credits }}
+      
+        {{ partial "components/dev/footer/credits/dev_description.html" (dict "page" "https://github.com/Blackstareye/stargazer-layout" "desc" "Stargazer Layout") }}
+    {{ end }}
+  </div>
+</div>
+
+

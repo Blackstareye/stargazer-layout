@@ -1,0 +1,105 @@
+.str-text-fx {
+  background: linear-gradient(0deg, #413f3b 0%, #fed632 50%, #fff5cb 100%);
+  background-clip: text;
+  color: transparent; }
+
+body.light .str-text-fx {
+  filter: invert(100%);
+  background-clip: text;
+  color: transparent; }
+
+.str-pagination {
+  z-index: 8 !important; }
+  .str-pagination .disabled {
+    display: none; }
+
+.highlight {
+  width: 100%; }
+  .highlight span {
+    white-space: pre-wrap;
+    word-break: break-all; }
+
+.stargazer-flexwrap {
+  display: flex;
+  flex-wrap: wrap; }
+
+.stargazer-scroll {
+  height: 55vh;
+  overflow-y: scroll; }
+  .stargazer-scroll.minimize {
+    height: 33vh;
+    overflow-y: scroll; }
+
+.stargazer-fab-button {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 1000;
+  cursor: pointer; }
+
+.str-menu {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 800; }
+  .str-menu:has(> label > .menu-toggler) {
+    transform: translateX(100%);
+    transition: 0.5s; }
+  .str-menu:has(> label > .menu-toggler:checked) {
+    transform: translateX(0%);
+    transition: 0.5s; }
+  .str-menu .menu-toggler {
+    z-index: 901;
+    opacity: 0;
+    width: 1.5rem;
+    height: 1.5rem; }
+    .str-menu .menu-toggler ~ ul {
+      opacity: 0; }
+      .str-menu .menu-toggler ~ ul li {
+        transition: 0.5s;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0; }
+    .str-menu .menu-toggler:checked ~ ul {
+      position: relative;
+      opacity: 1; }
+      .str-menu .menu-toggler:checked ~ ul li {
+        list-style: none;
+        position: absolute;
+        opacity: 1;
+        background-color: red; }
+        .str-menu .menu-toggler:checked ~ ul li:nth-child(1) {
+          transform: rotate(12deg) translateX(-8rem); }
+          .str-menu .menu-toggler:checked ~ ul li:nth-child(1) a, .str-menu .menu-toggler:checked ~ ul li:nth-child(1) button {
+            transform: rotate(-12deg); }
+        .str-menu .menu-toggler:checked ~ ul li:nth-last-child(1) {
+          transform: translate(0px, 20px); }
+        .str-menu .menu-toggler:checked ~ ul li:nth-last-child(2) {
+          transform: translate(0px, -60px); }
+
+.str-nav-drawer li {
+  list-style: none; }
+  .str-nav-drawer li a {
+    width: 100%;
+    justify-content: start; }
+
+li > details > ul {
+  list-style-type: none; }
+
+li > details > ul > li > a.active {
+  text-decoration: underline;
+  color: var(--primary); }
+
+.str-z-fix {
+  z-index: 8 !important; }
+
+footer {
+  background-color: transparent; }
+
+html {
+  scroll-behavior: smooth; }
+
+/*# sourceMappingURL=main.css.map */

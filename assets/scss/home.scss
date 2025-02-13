@@ -1,0 +1,22 @@
+
+.str-text-fx {
+    background: linear-gradient(
+      0deg,
+      rgba(65, 63, 59, 1) 0%,
+      rgba(254, 214, 50, 1) 50%,
+      rgba(255, 245, 203, 1) 100%
+    );
+    background-clip: text;
+    color: transparent;
+  
+
+}
+body.light {
+.str-text-fx {
+    filter: invert(100%);
+    background-clip: text;
+    color: transparent;
+  
+}
+
+}

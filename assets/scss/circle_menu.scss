@@ -1,0 +1,119 @@
+@mixin rotate($deg, $translateX) {
+  transform: rotate($deg) translateX($translateX);
+  a,button {
+    transform: rotate(-$deg);
+  }
+}
+
+@mixin buttons ($num, $deg_offset, $translateX, $start_position : 0deg) {
+          @for $i from 1 through $num {
+          &:nth-child(#{$i}) {
+            @include rotate($start_position + (($i*$deg_offset)-$deg_offset), $translateX);
+          }
+        }
+}
+
+.str-menu {
+  // margin-top: 20rem;
+  // width: 80%;
+  // display: flex;
+  // justify-content: center;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 800;
+
+  &:has(> label > .menu-toggler){
+    // background-color: red;
+    transform: translateX(100%);
+    transition: 0.5s;
+  }
+  &:has(> label > .menu-toggler:checked){
+    // background-color: yellow;
+    transform: translateX(0%);
+    transition: 0.5s;
+    
+  }
+
+  .menu-toggler {
+    z-index: 901;
+    opacity: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+
+
+
+    ~ ul {
+      opacity: 0;
+
+      li {
+        transition: 0.5s;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &:checked ~ ul {
+      position: relative;
+      opacity: 1;
+      
+      li {
+        list-style: none;
+        position: absolute;
+        opacity: 1;
+        background-color: red;
+
+        $translateX: -8rem;
+        // &:nth-child(1) {
+        //   transform: rotate(0deg) translate($translateX);
+        //   > i {
+        //     transform: rotate(0deg);
+        //   }
+        // }
+        $deg_offset : 30deg;
+        $start_deg_offset : 12deg;
+
+          @include buttons(1,$deg_offset ,$translateX, $start_deg_offset);
+
+          &:nth-last-child(1) {
+            transform: translate(0px, 20px);
+          }
+          &:nth-last-child(2) {
+            transform: translate(0px, -60px);
+          }
+        // &:nth-child(2) {
+        //   @include rotate(20deg, $translateX);
+        // }
+        // &:nth-child(3) {
+        //   @include rotate(40deg, $translateX);
+        // }
+        // &:nth-child(4) {
+        //   @include rotate(60deg, $translateX);
+        // }
+        // &:nth-child(5) {
+        //   @include rotate(80deg, $translateX);
+        // }
+        // &:nth-child(6) {
+        //   @include rotate(100deg, $translateX);
+        // }
+
+        // & > * {
+        //   position: absolute;
+        //   top: 50%;
+        //   left: 50%;
+        //   transform: translate(-50%,-50%);
+        // }
+      }
+    }
+  }
+}
+
+
+
+// center
+// display:grid;
+// place-items: center;

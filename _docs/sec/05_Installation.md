@@ -1,8 +1,8 @@
 # 🎯 Installation
 
-## Quickstart
+## ⏫ Quickstart
 
-just copy this and paste it in your working directory
+Just copy and paste this into your working directory:
 
 ```sh
 hugo new site my-site
@@ -15,28 +15,30 @@ cd ../..
 hugo serve
 ```
 
-## Install Theme
+## 🚀 Install Theme
 
-As Git Submodule
-Inside the folder of your Hugo site run:
+### As a Git Submodule
+
+Inside your Hugo site folder, run:
 
 ```sh
-git submodule add  https://github.com/Blackstareye/stargazer-layout themes/stargazer-layout
+git submodule add https://github.com/Blackstareye/stargazer-layout themes/stargazer-layout
 
-# go to the directory
+# Go to the theme directory
 cd themes/stargazer-layout
 npm install
-
 ```
 
-Put this in your config:
+### Add Theme to Config
+
+Include this in your Hugo config:
 
 ```yaml
 theme: 
   - stargazer-layout
 ```
 
-or add it to your other themes
+Or, if you are using multiple themes:
 
 ```yaml
 theme: 
@@ -44,20 +46,18 @@ theme:
   - stargazer-layout
 ```
 
-if you prefer toml:
+For **TOML** users:
 
 ```toml
 theme=["stargazer-layout"]
 ```
 
-For more information read the official [Quick Start](https://gohugo.io/getting-started/quick-start/) guide of Hugo.
+For more details, check out Hugo’s official [Quick Start](https://gohugo.io/getting-started/quick-start/) guide.
 
-Thats it, you are all set. 🙌
+That's it! You’re all set. 🙌
 
-### Run it
+## 🌟 Run It
 
-```
+```sh
 hugo serve
 ```
-
-

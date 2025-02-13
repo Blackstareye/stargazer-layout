@@ -1,0 +1,31 @@
+@mixin scroll ($height) {
+  height: $height;
+  overflow-y: scroll;
+}
+
+.stargazer-flexwrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stargazer-scroll {
+  @include scroll(55vh);
+  &.minimize {
+    @include scroll(33vh);
+  }
+}
+
+
+
+
+.stargazer-fab-button {
+  position: fixed;
+
+  bottom: 50px;
+
+  right: 50px;
+
+  z-index: 1000;
+
+  cursor: pointer;
+}

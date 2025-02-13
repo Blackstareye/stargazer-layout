@@ -1,0 +1,6 @@
+{{/*  TODO das hier in params abspeichern  */}}
+{{ $dir := "down" }}
+{{ if .up | default true }}
+    {{ $dir = "up" }}
+{{ end }}
+<div id="str-{{ $dir}}-anchor"></div>

@@ -1,0 +1,35 @@
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+  {{ if eq $menuID "main" }}
+    <nav class="l left str-z-fix">
+      <ul>
+        {{/*  walk the menu  - get the entries with <li></li> , children will be detail elements */}}
+        <li>
+          <div class="top-margin">
+              {{ partial "components/brand/get_brand" (dict "logo" true "title" false ) }}
+          </div>
+        </li>
+        {{- partial "func/menuwalk/entry.html" (dict "page" $page "menuEntries" .) }}
+      </ul>
+    </nav>
+
+    <header class="fixed top">
+      <nav class="m s">
+        {{ $ui_id := (printf "%s-menu-dialog" $menuID) }}
+        <button class="circle transparent" data-ui="#{{$ui_id}}">
+          <i>menu</i>
+        </button>
+
+        <h5 class="max center-align">{{ partial "components/brand/get_brand_title" site }}</h5>
+        <button class="circle transparent">
+          {{ partial "components/brand/get_brand_logo" (dict "page" site "classes" "responsive") }}
+        </button>
+        {{ partial "components/menu/dialog-menu.html" (dict "page" $page "menuEntries" . "direction" "left" "triggerid" $ui_id) }}
+        {{ partial "components/menu/dialog-menu.html" (dict "page" $page "menuEntries" . "direction" "bottom" "triggerid" "small-menu-dialog") }}
+      </nav>
+    </header>
+  {{ end }}
+{{- end }}
+

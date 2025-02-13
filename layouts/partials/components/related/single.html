@@ -1,0 +1,10 @@
+{{ $related := .Site.RegularPages.Related . | first 10 }}
+{{ with $related }}
+  <h4 class="margin"><span class="">{{ T "see_also"}} 👇</span></h4>
+  <div class="stargazer-scroll">
+      {{ range . }}
+
+      {{ .Render "views/related_view" }}
+      {{ end }}
+  </div>
+{{ end }}

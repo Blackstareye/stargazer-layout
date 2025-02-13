@@ -1,0 +1,15 @@
+mounts:
+  - source: content
+    target: content
+
+  # - source: node_modules
+  #   target: assets
+  - source: assets
+    target: assets
+
+  - source: static
+    target: static
+
+  # - source: themes/stargazer/node_modules
+  #   target: assets/vendor
+

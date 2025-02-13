@@ -1,0 +1,17 @@
+<!doctype html>
+<html
+  lang="{{ site.Language.LanguageCode }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}"
+>
+  <head>
+    {{ partial "partials/head.html" . }}
+  </head>
+  <body class="dark">
+    <main class="responsive">
+      {{ partial "logging/show_info" (dict "level" "debug" "pre" "Debug Message"  "inner" (debug.Dump .Kind )) }}
+      {{ partial "logging/show_info" (dict "level" "debug" "pre" "Debug Message"  "inner" (debug.Dump .Type )) }}
+        {{ block "main" . }}{{ end }}
+    </main>
+    <footer>{{/* {{ partial "footer.html" . }} */}}</footer>
+  </body>
+</html>

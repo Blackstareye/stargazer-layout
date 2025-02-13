@@ -1,0 +1,16 @@
+{{/*  .page $page  - the page variable
+      .menuEntries  - the menus for the dialog-menu
+      direction - where the dialog should appear ; left, right, bottom, top  
+*/}}
+{{- $page := .page }}
+<dialog id="{{ .triggerid | default "menu-dialog" }}" class="{{ .direction | default "" }} str-zindex-front">
+  <div class="m s">
+    <div class="row">
+      {{ partialCached "components/brand/get_brand.html" (dict "logo" true "title" true) }}
+    </div>
+    <ul class="str-nav-drawer">
+      {{/*  walk the menu  - get the entries with <li></li> , children will be detail elements */}}
+      {{- partial "func/menuwalk/entry.html" (dict "page" $page "menuEntries" .menuEntries) }}
+    </ul>
+  </div>
+</dialog>

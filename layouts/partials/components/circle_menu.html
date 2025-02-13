@@ -1,0 +1,61 @@
+<div class="s m str-menu">
+  {{/* <input class="small primary small-round amenu-toggler" type="checkbox" />
+    <label class="small primary small-round" for="menu-toggler"
+    ><i> Menu </i></label
+    >
+  */}}
+
+
+  <label class="switch padding icon menu-container">
+    <input class="menu-toggler" type="checkbox" />
+    <span><i>Menu</i></span>
+    <ul>
+      {{/* TODO NAVBAR LIST SORTED BY WEIGHT first 5 */}}
+      <li class="menu-item">
+        {{- with index site.Menus "main" }}
+        {{ $ui_id := (printf "%s-menu-dialog" "small") }}
+        <span
+          ><a class="padding round primary" data-ui="#{{$ui_id}}"><i> Menu_Open </i></a></span
+        >
+        
+        {{ end }}
+      </li>
+      {{/*  5 additional buttons are possible  */}}
+      {{/*  <li class="menu-item">
+        <span
+          ><a class="round primary padding" href="#"><i> Star </i></a></span
+        >
+      </li>
+      <li class="menu-item">
+        <span
+          ><a class="round primary padding" href="#"><i> Favorite </i></a></span
+        >
+      </li>
+      <li class="menu-item">
+        <span
+          ><a class="round primary padding" href="#"><i> Timer </i></a></span
+        >
+      </li>
+      <li class="menu-item">
+        <span
+          ><a class="round primary padding" href="#"><i> Pinch </i></a></span
+        >
+      </li>  */}}
+
+      <li class="menu-item">
+        <span
+          ><a class="round primary small-padding" href="#str-up-anchor"
+            ><i> Arrow_Upward </i></a
+          ></span
+        >
+      </li>
+      <li class="menu-item">
+        <span
+          ><a class="round primary small-padding" href="#str-down-anchor"
+            ><i> Arrow_Downward </i></a
+          ></span
+        >
+      </li>
+    </ul>
+  </label>
+</div>
