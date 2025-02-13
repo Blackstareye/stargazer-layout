@@ -1,0 +1,21 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "description" }}
+{{ $title := .Get "title" | default $alt }}
+{{ $addclass := .Get "class" | default "" }}
+{{/*  src="{{ printf "%s?random&param=%s" $src (math.Rand | mul 10 | math.Floor) }}"  */}}
+
+<div class="grid no-space">
+    <div class="s12 m6">
+        <img
+        class="center {{ with $addclass}} . {{ end }}"
+        src="{{ $src }}"
+  alt="{{ $alt }}"
+  {{- with $title }}title="{{ . }}"{{- end -}}
+/>
+    </div>
+    <div class="s12 m6">
+      <div class="padding">
+        <p class="center-align"> {{ $alt }} </p>
+      </div>
+    </div>
+  </div>

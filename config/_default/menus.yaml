@@ -9,10 +9,10 @@ main:
     weight: 20
     #useful for targeting the children
     identifier: blog_parent 
-  - name: Technical
+  - name: Engineering
     pre: <i> Integration_Instructions </i>
     parent: blog_parent
-    pageRef: /technique
+    pageRef: /technological
     weight: 10
     identifier: blog_technique
   - name: Creative
