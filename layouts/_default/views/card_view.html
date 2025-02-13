@@ -20,7 +20,7 @@
     {{ end }}
     <div class="{{ $resolution_right }}">
       <div class="padding">
-        <h5><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h5>
+        <h5><a href="{{ .RelPermalink }}">{{ .LinkTitle | strings.Truncate 50 }}</a></h5>
         {{ $show_cat := hugo.Store.Get "show_categories" | default false }}
         {{ partial "components/title_meta" (dict "page" . "use_chip" false "show_categories" true ) }}
         <div class="tiny row wrap">{{ .Summary | strings.Truncate 20 }}</div>

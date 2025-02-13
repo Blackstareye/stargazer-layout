@@ -13,10 +13,13 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
-<img
-  class="responsive"
+
+
+      <img
+  class="center"
   src="{{ $src }}"
   alt="{{ .PlainText }}"
+  class=
   {{- with .Title }}title="{{ . }}"{{- end -}}
   {{- range $k, $v := .Attributes -}}
     {{- if $v -}}
@@ -24,4 +27,9 @@
     {{- end -}}
   {{- end -}}
 />
+
+
+
+
+
 {{- /**/ -}}
