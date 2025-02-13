@@ -12,3 +12,4 @@
 
 A Product made by Blackeye ([Oldschoolmanier](https://oldschoolmanier.de))
 
+👉 [DEMO](https://blackstareye.github.io/stargazer-layout/)

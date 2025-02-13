@@ -18,7 +18,7 @@
 
 ## Blogging
 
- [Demo](https://demo.layout.stargazer.blackeyeprojects.de/)
+ [Demo](https://blackstareye.github.io/stargazer-layout/)
  * home page contains `recent posts`, and organizes content in a beutiful grid
  * all what you need: `list` , `single` , `tags`, `home` page is created
 
