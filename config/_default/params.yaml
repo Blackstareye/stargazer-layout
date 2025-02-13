@@ -1,6 +1,9 @@
 keywords: ""
 useCanonify: True
 
+images:
+  - "images/logo/stargazer/stargazer_layout_big.png"
+
 # Achtung, kein richtiges logging interface mit setting.loglevel > msg.loglevel etc.
 show_infos: 
   error: True
