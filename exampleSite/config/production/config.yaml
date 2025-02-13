@@ -1,4 +1,4 @@
 # https://gohugo.io/getting-started/configuration/
 # _merge: shallow 
 baseURL: "http://docker-haven:8020"
-title: "[DOCKER DEMO] Stargazer Layout"
+title: "🌠 [DEMO] Stargazer Layout"
