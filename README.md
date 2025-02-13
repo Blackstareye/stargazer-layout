@@ -16,6 +16,8 @@ commit](https://img.shields.io/github/last-commit/Blackstareye/stargazer-layout)
 A Product made by Blackeye
 ([Oldschoolmanier](https://oldschoolmanier.de))
 
+👉 [DEMO](https://blackstareye.github.io/stargazer-layout/)
+
 ## Description
 
 Stargazer Layout is a hugo theme module that uses [beer
@@ -62,7 +64,7 @@ functions. It can be used as a standalone or as a bundle with Stargazer
 
 ### Blogging
 
-[Demo](https://demo.layout.stargazer.blackeyeprojects.de/) \* home page
+[Demo](https://blackstareye.github.io/stargazer-layout/) \* home page
 contains `recent posts`, and organizes content in a beutiful grid \* all
 what you need: `list` , `single` , `tags`, `home` page is created
 
