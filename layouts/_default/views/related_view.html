@@ -8,16 +8,13 @@
 {{ end  }}
 
 <article class="small">
-  <a href="{{ .RelPermalink }}">
-      <div class="row">
-          {{ if $hasImg }}
-          <img class="circle large" src="{{ $img | safeURL }}">
-          {{ end }}
-          <div class="max">
-              <h5>{{ .LinkTitle }} </h5>
-              {{ partial "components/title_meta" (dict "page" . "use_chip" false) }}         
-              <p>{{ .Summary | strings.Truncate 42 }}</p>
-            </div>
+    <h5 class="row left-align">{{ .LinkTitle }} </h5>
+    <a href="{{ .RelPermalink }}">
+        {{ if $hasImg }}
+        <div class="padding">
+            <img class="circle small" src="{{ $img | safeURL }}">
         </div>
+        {{ end }}
+            {{ partial "components/title_meta" (dict "page" . "use_chip" false) }}         
     </a>
 </article>

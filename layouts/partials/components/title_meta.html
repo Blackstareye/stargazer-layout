@@ -12,21 +12,22 @@
 {{ $dateHuman := .Date | time.Format ":date_long" }}
 {{ if and $show_cat .Section }}
   {{ with .CurrentSection }}
-  <div class="space"></div>
-  <a class="chip tiny no-margin" href="{{.RelPermalink}}"><i class="small">Category</i>{{.LinkTitle}}</a>
+  <div class="row wrap no-padding">
+    <a class="chip tiny tiny-text" href="{{.RelPermalink}}"><i class="tiny">Category</i>{{.LinkTitle}}</a>
+  </div>
   {{ end }}
 {{ end }}
-<div class="top-margin stargazer-flexwrap">
+<div class="top-margin row wrap small-text no-space">
   {{ if (or (.Params.show_reading_time | default false) site.Params.show_reading_time | default true) }}
     <span class="{{ $chip }} tiny no-margin"
-      ><i class="small">Timer</i>{{ T "readingTime" .ReadingTime }}</span
+      ><i class="tiny">Timer</i>{{ T "readingTime" .ReadingTime }}</span
     >
     <span class="{{ $chip }} small no-margin"
-      ><i class="small">Functions</i>{{ T "wordCount" .WordCount }}</span
+      ><i class="tiny">Functions</i>{{ T "wordCount" .WordCount }}</span
     >
   {{ end }}
   <span class="{{ $chip }} small no-margin"
-    ><i class="small">Event</i
+    ><i class="tiny">Event</i
     ><time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></span
   >
 </div>
