@@ -14,7 +14,7 @@ function init_mode() {
     console.log(`Mode detected: ${new_mode}`);
     _trigger_ui_mode(new_mode);
   } else {
-    let mode = ui('mode', 'auto');
+    _trigger_ui_mode('auto');
   }
   if (themeColor) {
       ui('theme', themeColor);
