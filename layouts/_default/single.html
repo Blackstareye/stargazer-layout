@@ -20,25 +20,25 @@
     backdrop-filter: blur(var(--background-blur-px, 10px));
   }
 </style>
-
 <div class="
-  post-background
+post-background
 {{ if .Params.background | default false }}
-   round
+round
 {{ end }}
 
 ">
-  
-  <article class="padding scroll round
-  {{ if .Params.background  }}
-  background-post 
-  {{ if .Params.backgroundfilter  }}
-    background-filter
-  {{ end }}
-  {{ end }}
-  ">
-    {{/*  Upwards anchor  */}}
-    {{ partial "components/anchor.html" (dict "up" true) }}
+
+<article class="padding scroll round
+{{ if .Params.background  }}
+background-post 
+{{ if .Params.backgroundfilter  }}
+background-filter
+{{ end }}
+{{ end }}
+">
+{{/*  Upwards anchor  */}}
+{{ partial "components/anchor.html" (dict "up" true) }}
+{{ partial "components/header/toggle_theme.html" . }}
 
     <header class="transparent">
       <h5 class="top-margin">
