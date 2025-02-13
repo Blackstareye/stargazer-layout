@@ -2,7 +2,7 @@ keywords: ""
 useCanonify: True
 
 images:
-  - "/logo.png"
+  - "stargazer-layout/card.png"
 
 # Achtung, kein richtiges logging interface mit setting.loglevel > msg.loglevel etc.
 show_infos: 
