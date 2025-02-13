@@ -2,4 +2,5 @@
 # _merge: shallow 
 title: "🌠 [DEMO] Stargazer Layout"
 params:
-  images: /stargazer-layout/logo.png
+  images: 
+    - "/stargazer-layout/logo.png"
