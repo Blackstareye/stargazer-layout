@@ -1,6 +1,6 @@
 # 🌟 Stargazer Layout
 
-![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen)
+![Version](https://img.shields.io/badge/Version-0.3.0-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue) ![GitHub
 issues](https://img.shields.io/github/issues/Blackstareye/stargazer-layout)
 ![GitHub
@@ -15,6 +15,8 @@ commit](https://img.shields.io/github/last-commit/Blackstareye/stargazer-layout)
 
 A Product made by Blackeye
 ([Oldschoolmanier](https://oldschoolmanier.de))
+
+![Screenshot](images/Screenshot.png)
 
 👉 [DEMO](https://blackstareye.github.io/stargazer-layout/)
 

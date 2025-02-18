@@ -12,11 +12,11 @@ See more on the [README](https://github.com/Blackstareye/stargazer-layout) '
 homepage : 'https://github.com/Blackstareye/stargazer-layout'
 
 # If you have a running demo of the theme
-#demosite : 'https://owner.github.io/repo'
+demosite : 'https://blackstareye.github.io/stargazer-layout/'
 
 # Taxonomy terms
-#tags : ['blog', 'company']
-#features : ['some', 'awesome', 'features']
+tags : ['blog', 'company']
+features : ['minify', 'fingerprint', 'node-modules', 'beercss', 'material-3', 'material', 'darkmode', 'custom-color', 'color', 'responsive', 'importmap', 'pagination']
 
 # If the theme has a single author
 author:
