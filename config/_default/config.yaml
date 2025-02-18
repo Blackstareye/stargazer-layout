@@ -13,6 +13,7 @@ module:
       target: i18n
     - source: node_modules
       target: assets/vendorlibs
-
+  hugoVersion:
+    extended: true
 
 # sectionPagesMenu: main
