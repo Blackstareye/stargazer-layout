@@ -23,8 +23,6 @@ author:
   name:  'Blackeye'
   homepage:  'https://github.com/Blackstareye/'
 
-# If porting an existing theme
-# [original]
-#   author = 'Name of original author'
-#   homepage = 'Website of original author'
-#   repo = 'https://github.com/owner/repo'
+module:
+  hugoVersion:
+    extended: true
