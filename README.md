@@ -16,7 +16,7 @@ commit](https://img.shields.io/github/last-commit/Blackstareye/stargazer-layout)
 A Product made by Blackeye
 ([Oldschoolmanier](https://oldschoolmanier.de))
 
-![Screenshot](images/Screenshot.png)
+![Screenshot](https://github.com/Blackstareye/stargazer-layout/blob/master/images/Screenshot.png)
 
 👉 [DEMO](https://blackstareye.github.io/stargazer-layout/)
 
@@ -85,15 +85,17 @@ functions. It can be used as a standalone or as a bundle with Stargazer
 
 ### Homepage
 
-![alt text](_docs/sec/assets/04_Screenshots/image-2.png)
+![alt
+text](https://github.com/Blackstareye/stargazer-layout/blob/master/_docs/sec/assets/04_Screenshots/image-2.png)
 
 ### Posts
 
-![alt text](_docs/sec/assets/04_Screenshots/image-1.png)
+![alt
+text](https://github.com/Blackstareye/stargazer-layout/blob/master/_docs/sec/assets/04_Screenshots/image-1.png)
 
 ### Recent Posts
 
-![recentPosts](_docs/sec/assets/04_Screenshots/image.png)
+![recentPosts](https://github.com/Blackstareye/stargazer-layout/blob/master/_docs/sec/assets/04_Screenshots/image.png)
 
 ## ⚙️ Configuration
 
@@ -346,7 +348,8 @@ hugo serve
 
 ## 📄 LICENSE
 
-this project is under the MIT License, see [LICENSE](LICENSE)
+this project is under the MIT License, see
+[LICENSE](https://github.com/Blackstareye/stargazer-layout/blob/master/LICENSE)
 
 ## 🙏 Credits
 
