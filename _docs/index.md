@@ -1,6 +1,6 @@
 # 🌟 Stargazer Layout
 
-![Version](https://img.shields.io/badge/Version-0.3.0-brightgreen)
+![Version](https://img.shields.io/badge/Version-0.3.1-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 ![GitHub issues](https://img.shields.io/github/issues/Blackstareye/stargazer-layout)
 ![GitHub forks](https://img.shields.io/github/forks/Blackstareye/stargazer-layout)
