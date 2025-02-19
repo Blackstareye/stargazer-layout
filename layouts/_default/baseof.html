@@ -11,6 +11,7 @@
     {{ partial "logging/show_info" (dict "level" "debug" "pre" "Debug Message"  "inner" (debug.Dump .Type )) }}
     {{/* {{ partial "components/navbar.html" . }} */}}
 
+    {{/*  ## Two Column Layout START   */}}
     <div class="grid">
       <div class="s12 l2">
         {{ partial "components/menu/menu.html" (dict "menuID" "main" "page" .) }}
@@ -27,6 +28,7 @@
         </aside>
       </div>
     </div>
+    {{/*  ## Two Column Layout END   */}}
     <footer class="">
        {{ partial "footer" . }}
        {{/*  language switch  */}}
