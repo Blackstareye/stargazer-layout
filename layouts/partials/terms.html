@@ -14,7 +14,7 @@ For a given taxonomy, renders a list of terms assigned to the page.
   {{- $label := (index . 0).Parent.LinkTitle }}
   <hr>
   <div class="">
-    <div class="row padding">
+    <div class="row wrap padding">
       {{- range . }}
         <a class="chip deep-purple7" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
       {{- end }}
