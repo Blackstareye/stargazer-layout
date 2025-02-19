@@ -16,7 +16,7 @@ commit](https://img.shields.io/github/last-commit/Blackstareye/stargazer-layout)
 A Product made by Blackeye
 ([Oldschoolmanier](https://oldschoolmanier.de))
 
-![Screenshot](https://github.com/Blackstareye/stargazer-layout/blob/master/images/Screenshot.png)
+![screenshot](https://github.com/Blackstareye/stargazer-layout/blob/master/images/screenshot.png)
 
 👉 [DEMO](https://blackstareye.github.io/stargazer-layout/)
 
