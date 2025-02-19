@@ -8,7 +8,9 @@
 {{ end  }}
 
 <article class="small">
-    <h5 class="row left-align">{{ .LinkTitle }} </h5>
+    <h5 class="underline primary-text">{{ .LinkTitle | strings.Truncate 20 }}</h5>
+    <div class="tooltip max"><p class="medium-text">{{ .LinkTitle }}</p></div>
+  </a></h5>
     <a href="{{ .RelPermalink }}">
         {{ if $hasImg }}
         <div class="padding">
