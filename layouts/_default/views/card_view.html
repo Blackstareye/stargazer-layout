@@ -12,9 +12,8 @@
   {{ $hasImg = false }}
 {{ end }}
 <article class="medium round">
-  <h5 class="underline primary-text"><a href="{{ .RelPermalink }}">{{ .LinkTitle | strings.Truncate 20 }}
-    <div class="tooltip max"><p class="medium-text">{{ .LinkTitle }}</p></div>
-  </a></h5>
+  <p class="underline primary-text">{{ .LinkTitle }}
+  </p>
   <div class="grid">
     {{ if $hasImg }}
       <div class="{{ $resolution_left }} small-height middle center-align">
@@ -26,7 +25,6 @@
         {{ $show_cat := hugo.Store.Get "show_categories" | default false }}
         {{ partial "components/title_meta" (dict "page" . "use_chip" false "show_categories" true ) }}
         <div class="tiny-space"></div>
-        <div class="tiny row wrap no-margin" style="">{{ .Summary | strings.Truncate 20 }}</div>
       </div>
       <div class="space"></div>
     </div>

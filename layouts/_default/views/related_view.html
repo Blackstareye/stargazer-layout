@@ -8,15 +8,15 @@
 {{ end  }}
 
 <article class="small">
-    <h5 class="underline primary-text">{{ .LinkTitle | strings.Truncate 20 }}</h5>
-    <div class="tooltip max"><p class="medium-text">{{ .LinkTitle }}</p></div>
-  </a></h5>
-    <a href="{{ .RelPermalink }}">
-        {{ if $hasImg }}
-        <div class="padding">
+    <a href="{{ .RelPermalink }}" class="underline primary-text">{{ .LinkTitle  }}</a>
+    <div class="grid">
+        <div class="s6 padding">
+            {{ if $hasImg }}
             <img class="circle small" src="{{ $img | safeURL }}">
+            {{ end }}
         </div>
-        {{ end }}
+        <div class="s6">
             {{ partial "components/title_meta" (dict "page" . "use_chip" false) }}         
-    </a>
+        </div>
+    </div>
 </article>
