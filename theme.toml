@@ -1,19 +1,19 @@
 name = "stargazer-layout"
 license = "MIT"
-licenselink = "https=//github.com/Blackstareye/stargazer-layout/LICENSE"
+licenselink = "https://github.com/Blackstareye/stargazer-layout/LICENSE"
 description = """Stargazer Layout is a hugo theme module that uses beer 
 css (https=//www.beercss.com/) for styling and supports `node_modules`
 and `importmaps`. It offers features like minification, fingerprinting,
 and custom JS/CSS integration.
 
-See more on the README (https=//github.com/Blackstareye/stargazer-layout) 
+See more on the README (https://github.com/Blackstareye/stargazer-layout) 
 """
 
 # The home page of the theme, where the source can be found
-homepage = "https=//github.com/Blackstareye/stargazer-layout"
+homepage = "https://github.com/Blackstareye/stargazer-layout"
 
 # If you have a running demo of the theme
-demosite = "https=//blackstareye.github.io/stargazer-layout/"
+demosite = "https://blackstareye.github.io/stargazer-layout/"
 
 # Taxonomy terms
 tags = ["blog", "dark", "responsive", ]
