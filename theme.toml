@@ -22,7 +22,7 @@ features = ["minify", "fingerprint", "node-modules", "beercss", "material-3", "m
 # If the theme has a single author
 [author]
   name=  "Blackeye"
-  homepage=  "https=//github.com/Blackstareye/"
+  homepage=  "https://github.com/Blackstareye/"
 
 [module]
   [module.hugoVersion]
