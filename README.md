@@ -1,6 +1,6 @@
 # 🌟 Stargazer Layout
 
-![Version](https://img.shields.io/badge/Version-1.0.6-brightgreen)
+![Version](https://img.shields.io/badge/Version-1.0.7-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue) ![GitHub
 issues](https://img.shields.io/github/issues/Blackstareye/stargazer-layout)
 ![GitHub
@@ -86,16 +86,16 @@ functions. It can be used as a standalone or as a bundle with Stargazer
 ### Homepage
 
 ![alt
-text](https://github.com/Blackstareye/stargazer-layout/blob/master/_docs/sec/assets/04_Screenshots/image-2.png)
+text](https://github.com/Blackstareye/stargazer-layout/blob/master/_docs/sec/assets/04_Screenshots/image-2.png?raw=true)
 
 ### Posts
 
 ![alt
-text](https://github.com/Blackstareye/stargazer-layout/blob/master/_docs/sec/assets/04_Screenshots/image-1.png)
+text](https://github.com/Blackstareye/stargazer-layout/blob/master/_docs/sec/assets/04_Screenshots/image-1.png?raw=true)
 
 ### Recent Posts
 
-![recentPosts](https://github.com/Blackstareye/stargazer-layout/blob/master/_docs/sec/assets/04_Screenshots/image.png)
+![recentPosts](https://github.com/Blackstareye/stargazer-layout/blob/master/_docs/sec/assets/04_Screenshots/image.png?raw=true)
 
 ## ⚙️ Configuration
 
