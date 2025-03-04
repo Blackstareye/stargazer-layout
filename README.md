@@ -366,6 +366,10 @@ inspired by those great themes (check them also out 💚):
 -   **Website** for Freelancing:
     [Oldschoolmanier](https://oldschoolmanier.de)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Blackstareye/stargazer-layout&type=Date)](https://star-history.com/#Blackstareye/stargazer-layout&Date)
+
 ## Support
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H2H096MU7)
