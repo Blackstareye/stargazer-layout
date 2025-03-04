@@ -368,7 +368,13 @@ inspired by those great themes (check them also out 💚):
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Blackstareye/stargazer-layout&type=Date)](https://star-history.com/#Blackstareye/stargazer-layout&Date)
+<a href="https://star-history.com/#Blackstareye/stargazer-layout&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Blackstareye/stargazer-layout&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Blackstareye/stargazer-layout&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Blackstareye/stargazer-layout&type=Date" />
+ </picture>
+</a>
 
 ## Support
 
