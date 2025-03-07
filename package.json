@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "dev": "hugo serve -D -p 5004 --disableFastRender --gc --noHTTPCache --printI18nWarnings",
-    "prod": "hugo serve -D -p 5004 --disableFastRender --gc  --environment production --noHTTPCache",
+    "dev": "hugo --source exampleSite serve -D -p 5004 --disableFastRender --gc --noHTTPCache --printI18nWarnings",
+    "clean": "[[ -d exampleSite/public ]] && rm -R exampleSite/public; [[ -d exampleSite/resources ]] && rm -R exampleSite/resources",
+    "prod": "hugo serve --source exampleSite -D -p 5004 --disableFastRender --gc  --environment production --noHTTPCache",
     "build": "hugo",
     "build:draft": "hugo -D"
   },

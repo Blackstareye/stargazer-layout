@@ -4,7 +4,15 @@
 {{ .Summary }}
 {{ end }}  */}}
   {{ partial "components/anchor.html" (dict "up" true) }}
-  {{ partial "components/home/header.html" . }}
+
+
+<header class="l fixed top">
+    {{ partial "components/home/header.html" . }}
+</header>
+
+<section>    
+  {{ .Content }}
+</section>
   
   {{ with site.Params.stargazer_layout.demo }}
   <div class="center center-align">
