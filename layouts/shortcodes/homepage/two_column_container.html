@@ -1,0 +1,49 @@
+{{ $img := .Get "src" }}
+{{ $desc := .Get "alt"}}
+{{ $classes := .Get "class"}}
+{{ $dim := .Get "dim"}}
+{{ $title := .Get "title"}}
+{{ $brandlogo := .Get "use-brandlogo" | default false }}
+
+
+{{ $classes := (printf "%s responsive large-padding" $classes ) }}
+{{ if $brandlogo }}
+  {{ with site.Params.brand.logo }}
+    {{ $desc = .alt }}
+    {{ $img = .src }}
+  {{ end }}
+{{ end }}
+
+{{/*  {{ with .Parent }}
+{{ $img = (.Get "src")}}
+{{ $desc = (.Get "alt")}}
+{{ $classes = (.Get "classes")}}
+{{ $dim = (.Get "imgdim")}}
+{{ $title = (.Get "title")}}
+{{ end }}  */}}
+{{/*  {{ partial "components/shortcode_backend/layout/p_two_column_container" (dict "src" $img "alt" $desc "class" $classes  "dim" $dim "title" $title) }}  */}}
+{{ with $title | default site.Title | title }}
+  <h1 class="center-align str-text-fx"> {{ . }}  </h1>
+{{ end }}
+<article class="large middle-align center-align padding str-container">
+        <div class="grid">
+        <div class="l m m6 l6">
+          <div class="large-padding center middle">
+              {{/*  {{ partial "components/brand/get_brand_logo" (dict "page" site "dim" "400x400" "classes" "responsive large-padding") }}  */}}
+              {{ with $img }}
+                {{ partial "components/images/get_image" (dict "url" $img "dim" ($dim | default "400x400") "alt" $desc "classes" $classes) }}
+              {{ end }}
+          </div>
+        </div>
+        <div class="s s12">
+          <div class="large-padding center middle">
+              {{ partial "components/images/get_image" (dict "url" $img "dim" ($dim | default "150x150") "alt" $desc "classes" $classes) }}
+          </div>
+        </div>
+          <div class="s12 m6 l6">
+            <section class="middle small-text max">
+              {{ markdownify .Inner }}
+            </section>
+          </div>
+        </div>
+</article>

@@ -1,0 +1,21 @@
+{{/* context e.g. "." is classes */}}
+{{ $classes := .classes  | default "large"}}
+{{ $dim := .dim | default "150x150" }}
+{{ $desc := .alt | default "" }}
+{{ with .url }}
+  {{ with resources.Get . }}
+    {{ with .Fit $dim }}
+      <a href="{{ site.Home.Permalink }}">
+        <img
+          class="{{ with $classes }} {{.}} {{ end }}"
+          src="data:{{ .MediaType.Type }};base64,{{ .Content | base64Encode }}"
+          alt="{{ $desc }}"
+        />
+      </a>
+    {{ end }}
+  {{ end }}
+
+{{/*  if not defined use favicon  */}}
+{{ else }}
+<pre class="error"> Image not found !</pre>
+{{ end }}

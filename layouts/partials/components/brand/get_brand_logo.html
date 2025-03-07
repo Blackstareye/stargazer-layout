@@ -2,27 +2,10 @@
 {{ $classes := .classes  | default "large"}}
 {{ $page := .page }}
 {{ $dim := .dim | default "150x150" }}
+{{ $img := "/favicon.ico"}}
+{{ $desc := "favicon - brandlogo" }}
 {{ with $page.Params.brand.logo }}
-  {{ $desc := .alt }}
-  {{ with resources.Get .src }}
-    {{ with .Fit $dim }}
-      <a href="{{ $page.Home.Permalink }}">
-        <img
-          class="{{ with $classes }} {{.}} {{ end }}"
-          src="data:{{ .MediaType.Type }};base64,{{ .Content | base64Encode }}"
-          alt="{{ $desc }}"
-        />
-      </a>
-    {{ end }}
-  {{ end }}
-
-{{/*  if not defined use favicon  */}}
-{{ else }}
-<a href="{{ $page.Home.Permalink }}">
-        <img
-          class="{{ with $classes }} {{.}} {{ end }}"
-          src="/favicon.ico"
-          alt="favicon - brandlogo"
-        />
-      </a>
+  {{ $desc = .alt }}
+  {{ $img = .src }}
 {{ end }}
+{{ partial "components/images/get_image" (dict "url" $img "dim" $dim "alt" $desc "classes" $classes) }}
