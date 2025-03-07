@@ -6,7 +6,8 @@ description = "Stargazer Layout"
 draft = false
 +++
 
-{{< homepage/two_column_container  use-brandlogo=true class="" title="" >}}
+{{< homepage/two_column_container  use-brandlogo=true class="" title="Stargazer Layout Demo" >}}
+## Stargazer Layout
 Stargazer Layout is a modern, lightweight Hugo theme module with Beer CSS, offering a sleek design and developer-friendly features like node_modules and importmaps. It includes minification, fingerprinting, and custom JS/CSS support, ensuring high performance and flexibility. 🚀
 
 [See More](https://github.com/Blackstareye/stargazer-layout)
