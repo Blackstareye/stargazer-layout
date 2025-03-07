@@ -12,17 +12,18 @@
           </div>
         </li>
         {{- partial "func/menuwalk/entry.html" (dict "page" $page "menuEntries" .) }}
+        <p class="fixed bottom bottom-margin primary-text str-title-grab" style="margin-bottom: 2.5rem !important;"></p>
       </ul>
     </nav>
 
-    <header class="fixed top">
+    <header class="m s fixed top">
       <nav class="m s">
         {{ $ui_id := (printf "%s-menu-dialog" $menuID) }}
         <button class="circle transparent" data-ui="#{{$ui_id}}">
           <i>menu</i>
         </button>
 
-        <h5 class="max center-align">{{ partial "components/brand/get_brand_title" site }}</h5>
+        <h5 class="max center-align str-title-grab">{{ partial "components/brand/get_brand_title" site }}</h5>
         <button class="circle transparent">
           {{ partial "components/brand/get_brand_logo" (dict "page" site "classes" "responsive") }}
         </button>
