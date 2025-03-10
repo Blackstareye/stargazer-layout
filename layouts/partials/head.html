@@ -22,20 +22,29 @@
 
 </title>
 
+
+{{/*  are there scratches which dont want css at all ?  */}}
+{{ $nocss_custom := $.Store.Get "nocss_custom" | default false }}
+{{ $nocss_vendor := $.Store.Get "nocss_vendor" | default false }}
+
 {{ partial "head/importmap.html" . }}
 {{ range site.Params.regex_folders }}
   {{ with .vendor }}
     {{ range .js }}
       {{ partial "head/js_vendor.html" . }}
     {{ end }}
+    {{ if not $nocss_vendor}} 
     {{ range .css }}
       {{ partial "head/css_vendor.html" . }}
+    {{ end }}
     {{ end }}
   {{ end }}
   {{ with .custom }}
     {{/*  TODO auto import  */}}
-    {{ range .js }}
-      {{ partial "head/ts_js_custom.html" . }}
+    {{ if not $nocss_custom}} 
+      {{ range .js }}
+        {{ partial "head/ts_js_custom.html" . }}
+      {{ end }}
     {{ end }}
     {{ range .css }}
       {{ partial "head/css_custom.html" . }}
