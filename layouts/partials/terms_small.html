@@ -6,7 +6,6 @@ For a given taxonomy, renders a list of terms assigned to the page.
 
 @example: {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 */}}
-<div class="margin"></div>
 {{- $page := .page }}
 {{- $taxonomy := .taxonomy }}
 {{- $color := .color | default  "deep-purple7" }}
@@ -14,12 +13,7 @@ For a given taxonomy, renders a list of terms assigned to the page.
 
 {{- with $page.GetTerms $taxonomy }}
   {{- $label := (index . 0).Parent.LinkTitle }}
-  <hr>
-  <div class="">
-    <div class="row wrap padding">
       {{- range . }}
-        <a class="chip {{$color}}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        <a class="chip small-padding {{$color}} small-text" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
       {{- end }}
-    </div>
-  </div>
 {{- end }}
