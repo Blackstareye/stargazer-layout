@@ -1,0 +1,13 @@
+{{ $class_title := .Get "class-title" | default "" }}
+{{ $class_div := .Get "class-div" | default "" }}
+{{/* str-text-fx */}}
+<h4 class="center-align {{$class_title}}">
+    {{ T "recent" }}
+</h4>
+<div class="{{$class_div}}">
+    {{ partial "components/home/sections" . }}
+    {{/* {{ range site.RegularPages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ .Summary | strings.Truncate 42 }}
+    {{ end }} */}}
+</div>
