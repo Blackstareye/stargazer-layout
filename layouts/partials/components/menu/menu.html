@@ -31,6 +31,15 @@
         {{ partial "components/menu/dialog-menu.html" (dict "page" $page "menuEntries" . "direction" "bottom" "triggerid" "small-menu-dialog") }}
       </nav>
     </header>
+  
+  {{ else if hasPrefix $menuID "footer"  }}
+    <nav class="large-width center vertical">
+      <ul class="">
+          {{- partial "func/menuwalk/entry.html" (dict "page" $page "menuEntries" .) }}
+      </ul>
+    </nav>
   {{ end }}
+
+
 {{- end }}
 
