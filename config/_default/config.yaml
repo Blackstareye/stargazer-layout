@@ -16,4 +16,11 @@ module:
   hugoVersion:
     extended: true
 
+sitemap:
+  changefreq: weekly
+  disable: false
+  priority: 0.8
+
+enableRobotsTXT: true
+
 # sectionPagesMenu: main
