@@ -15,8 +15,9 @@ show_infos:
 regex_folders: 
     stargazer_layout:
       vendor: 
-        js: 
+        jsmodules:
           - "vendorlibs/**/dist/**/*.min.js" #this is the one which is mounted in assets 
+          
         css: 
           - "vendorlibs/**/dist/**/*.min.css"
       custom: 
@@ -25,7 +26,7 @@ regex_folders:
         css:
           - "css/*.css"
           - "scss/main.scss"
-        js:
+        jsmodules:
           - "ts/*.ts"
           - "js/*.js"
 

@@ -3,6 +3,7 @@
 
 {{/* js build */}}
 {{ $jsbuild := .jsbuilt | default true }}
+{{ $module := .module | default true }}
 {{- $opts := dict "minify" true }}
 
 {{ if not hugo.IsProduction }}
@@ -29,7 +30,9 @@
         {{ partial "logging/show_info" (dict "level" "debug" "pre" "Context" "inner" (debug.Dump .RelPermalink) ) }}
         <script
           src="{{ .RelPermalink }}"
+          {{with $module}}
           type="module"
+          {{end }}
           {{- if hugo.IsProduction }}
             integrity="{{- .Data.Integrity }}" crossorigin="anonymous"
           {{ end }}

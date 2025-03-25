@@ -27,37 +27,43 @@
 {{ $nocss_custom := $.Store.Get "nocss_custom" | default false }}
 {{ $nocss_vendor := $.Store.Get "nocss_vendor" | default false }}
 
-{{ partial "head/importmap.html" . }}
+
 {{ range site.Params.regex_folders }}
   {{ with .vendor }}
-    {{ range .js }}
-      {{ partial "head/js_vendor.html" . }}
-    {{ end }}
     {{ if not $nocss_vendor}} 
-    {{ range .css }}
-      {{ partial "head/css_vendor.html" . }}
+      {{ range .css }}
+        {{ partial "head/css_vendor.html" . }}
+      {{ end }}
     {{ end }}
-    {{ end }}
+    {{ partial "partials/inline/head/function/js" (dict "head" .head) }}
   {{ end }}
   {{ with .custom }}
     {{/*  TODO auto import  */}}
     {{ if not $nocss_custom}} 
-      {{ range .js }}
-        {{ partial "head/ts_js_custom.html" . }}
+      {{ range .css }}
+        {{ partial "head/css_custom.html" . }}
       {{ end }}
     {{ end }}
-    {{ range .css }}
-      {{ partial "head/css_custom.html" . }}
-    {{ end }}
+    {{ partial "partials/inline/head/function/js" (dict "head" .head) }}
   {{ end }}
 {{ end }}
 
 <script>
   var themeColor = null;
   {{ with site.Params.themeColor }}
-        themeColor = {{ . }};
+  themeColor = {{ .}};
   {{ end }}
 </script>
 
+{{ define "partials/inline/head/function/js"}}
+  {{ with .head }}
+        {{ range .js }}
+          {{ partial "head/js_vendor.html" (dict "src" . "module" false) }}
+        {{ end }}
+        {{ range .jsmodules }}
+          {{ partial "head/js_vendor.html" (dict "src" . "module" true) }}
+        {{ end }}
+  {{ end }}
+{{ end }}
 {{/*  {{ partial "head/css.html" . }}  */}}
 {{/*  {{ partial "head/js.html" . }}  */}}
