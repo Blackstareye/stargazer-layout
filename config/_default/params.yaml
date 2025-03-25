@@ -27,8 +27,12 @@ regex_folders:
           - "css/*.css"
           - "scss/main.scss"
         jsmodules:
+          - "ts/modules/*.ts"
+          - "js/modules/*.js"
+        js:
           - "ts/*.ts"
           - "js/*.js"
+
 
 brand: 
   logo:

@@ -1,4 +1,4 @@
-
+{{ partial "head/importmap.html" . }}
 {{ range site.Params.regex_folders }}
     {{ with .vendor }}
         {{ range .jsmodules }}
@@ -8,9 +8,6 @@
             {{ partial "head/js_vendor.html" (dict "src" . "module" false) }}
         {{ end }}
     {{ end }}
-{{ end }}
-{{ partial "head/importmap.html" . }}
-{{ range site.Params.regex_folders }}
     {{ with .custom }}
         {{/* TODO auto import */}}
         {{ range .jsmodules }}
@@ -21,4 +18,5 @@
         {{ end }}
     {{ end }}
 {{ end }}
+
 
