@@ -25,6 +25,10 @@
   {{- $page := .page }}
   {{ with .fragment }}
     {{- $attrs := dict "href" .URL }}
+    {{ if .Params.downloadable }}
+    {{- $name := .Params.downloadable -}}
+    {{- $attrs = merge $attrs (dict "download" $name) }}
+    {{ end }}
     {{- if $page.IsMenuCurrent .Menu . }}
       {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
     {{- end }}
