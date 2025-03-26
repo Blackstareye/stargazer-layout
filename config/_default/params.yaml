@@ -48,6 +48,8 @@ disabled:
 
 credits: true
 themeColor: '#44d8f1'
+defaultMode: 'auto'
+
 
 stargazer_layout:
   lorem: 'ABC'

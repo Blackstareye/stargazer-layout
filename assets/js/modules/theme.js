@@ -1,5 +1,5 @@
 // let mode = ui('mode', 'light');
-
+// const default_mode = "dark"; //auto
 document
   .getElementById('dark_mode_toggler')
   .addEventListener('click', toggleTheme);
@@ -14,10 +14,10 @@ function init_mode() {
     console.log(`Mode detected: ${new_mode}`);
     _trigger_ui_mode(new_mode);
   } else {
-    _trigger_ui_mode('auto');
+    _trigger_ui_mode(defaultMode);
   }
   if (themeColor) {
-      ui('theme', themeColor);
+        ui('theme', themeColor);
   }
 }
 

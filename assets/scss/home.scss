@@ -1,22 +1,30 @@
 
+$goldstop:rgba(254, 214, 50, 1);
 .str-text-fx {
-    background: linear-gradient(
+    --str-gold-stop-1: rgba(65, 63, 59, 1);
+    --str-gold-stop-2: rgba(254, 214, 50, 1);
+    --str-gold-stop-3: rgba(255, 245, 203, 1);
+    
+    --str-gold-color: linear-gradient(
       0deg,
-      rgba(65, 63, 59, 1) 0%,
-      rgba(254, 214, 50, 1) 50%,
-      rgba(255, 245, 203, 1) 100%
+      var(--str-gold-stop-1) 0%,
+      var(--str-gold-stop-2) 50%,
+      var(--str-gold-stop-3) 100%
     );
+    background: var(--str-gold-color);
     background-clip: text;
     color: transparent;
   
-
-}
+  }
+  a.str-text-fx:hover {
+    color: lighten($goldstop, 10%);
+  }
 body.light {
 .str-text-fx {
-    filter: invert(100%);
-    background-clip: text;
-    color: transparent;
-  
+    background: none;
+    background-clip: none;
+    color: rgb(0, 0, 0);
+    
 }
 
 }

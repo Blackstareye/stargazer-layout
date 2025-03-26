@@ -50,8 +50,12 @@
 
 <script>
   var themeColor = null;
+  var defaultMode = "auto";
   {{ with site.Params.themeColor }}
   themeColor = {{ .}};
+  {{ end }}
+  {{ with site.Params.defaultMode }}
+  defaultMode = {{ .}};
   {{ end }}
 </script>
 
