@@ -1,0 +1,70 @@
+@mixin rainbow($rainbowgradient, $duration : 10s, $border: 1px solid) {
+    --angle: 0deg;
+	border: $border;
+	border-image: $rainbowgradient;
+	animation: $duration rotate linear infinite;
+}
+
+$rainbow : conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
+$rainbowperfect : conic-gradient(from var(--angle), rgba(255, 0, 0, 1) 0%,
+rgba(255, 154, 0, 1) 10%,
+rgba(208, 222, 33, 1) 20%,
+rgba(79, 220, 74, 1) 30%,
+rgba(63, 218, 216, 1) 40%,
+rgba(47, 201, 226, 1) 50%,
+rgba(28, 127, 238, 1) 60%,
+rgba(95, 21, 242, 1) 70%,
+rgba(186, 12, 248, 1) 80%,
+rgba(251, 7, 217, 1) 90%,
+rgba(255, 0, 0, 1) 100%) 1;
+$blueish : conic-gradient(from var(--angle), aqua, blue) 1;
+
+// good one
+$greenishradial : conic-gradient(from var(--angle), var(--primary), lime, aqua, rgb(71, 232, 226)) 1;
+
+$perfectrainbow : linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 154, 0, 1) 10%,
+    rgba(208, 222, 33, 1) 20%,
+    rgba(79, 220, 74, 1) 30%,
+    rgba(63, 218, 216, 1) 40%,
+    rgba(47, 201, 226, 1) 50%,
+    rgba(28, 127, 238, 1) 60%,
+    rgba(95, 21, 242, 1) 70%,
+    rgba(186, 12, 248, 1) 80%,
+    rgba(251, 7, 217, 1) 90%,
+    rgba(255, 0, 0, 1) 100%
+);
+@keyframes rotate {
+	to {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+
+body.light {
+    str-animate-box-rainbow {
+      border: 1px solid black;
+      border-radius: 15px;
+    }
+    .str-animate-box-greenish {
+        border: 1px solid black;
+        border-radius: 15px;
+    }
+}
+
+
+.str-animate-box-rainbow {
+    @include rainbow($rainbowperfect);
+}
+
+.str-animate-box-greenish {
+    @include rainbow($greenishradial);
+}
