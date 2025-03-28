@@ -1,10 +1,11 @@
 {{- $page := .page }}
 {{- $menuID := .menuID }}
+{{- $navclass := .navclass }}
 
 {{- with index site.Menus $menuID }}
   {{ if eq $menuID "main" }}
-    <nav class="l left str-z-fix">
-      <ul>
+    <nav class="l left str-z-fix {{$navclass}}">
+      <ul class="str-ul-pdding-fix">
         {{/*  walk the menu  - get the entries with <li></li> , children will be detail elements */}}
         <li>
           <div class="top-margin">
