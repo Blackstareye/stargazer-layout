@@ -4,6 +4,11 @@
 	border-image: $rainbowgradient;
 	animation: $duration rotate linear infinite;
 }
+@mixin rainbowstill($rainbowgradient, $duration : 10s, $border: 1px solid) {
+    --angle: 0deg;
+	border: $border;
+	border-image: $rainbowgradient;
+}
 
 $rainbow : conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
 $rainbowperfect : conic-gradient(from var(--angle), rgba(255, 0, 0, 1) 0%,
@@ -63,6 +68,10 @@ body.light {
 
 .str-animate-box-rainbow {
     @include rainbow($rainbowperfect);
+}
+
+.str-animate-box-rainbow-still {
+    @include rainbowstill($rainbowperfect);
 }
 
 .str-animate-box-greenish {
