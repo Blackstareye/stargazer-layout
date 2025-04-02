@@ -6,9 +6,8 @@
 {{ else }}
     {{ $hasImg = false }}
 {{ end  }}
-
 <article class="small">
-    <a href="{{ .RelPermalink }}" class="underline primary-text">{{ .LinkTitle  }}</a>
+    <a href="{{ .RelPermalink }}" class="underline primary-text">{{ .LinkTitle | default .Title  }}</a>
     <div class="grid">
         <div class="s6 padding">
             {{ if $hasImg }}

@@ -40,11 +40,19 @@
 {{ define "partials/nav_nested_fragment.html" }}
   {{- $page := .page }}
   {{ with .fragment }}
-        <details open>
+        <details 
+        {{- if $page.HasMenuCurrent .Menu . }}
+        open
+        {{ else }}
+          class="row center"
+        {{ end }}
+        >
         <summary class="none">
             {{- $attrs := dict }}
             {{- if $page.HasMenuCurrent .Menu . }}
             {{- $attrs = (dict "class" "active secondary-container round" "aria-current" "page") }}
+            {{ else }}
+            {{- $attrs = (dict "class" "center-align" "aria-current" "page") }}
             {{- end }}
             <div
             {{ partial "utils/print_attr.html" $attrs | safeHTMLAttr }}

@@ -4,14 +4,21 @@
 {{/*  <pre> {{ debug.Dump .}}</pre>  */}}
 {{ range where .Site.Sections "Section" "not in" site.Params.disabled.sections }}
 {{/*  {{ range .Site.Sections | first 5 }}  */}}
-<h5 class="padding-bottom">{{ .Title | title }}</h5>
-
+{{ with .Title }}
+<h5 class="padding-bottom">{{ . | title }}</h5>
+{{ else }}
+{{ end }}
   {{/*  <h5 class="padding-bottom">{{ .Key | title }}</h5>  */}}
-   <div class="horizontal-margin stargazer-scroll minimize">
+  {{ $len := len (where .Pages "Kind" "ne" "section") }}
+  {{ if not (eq $len 0)  }}
+    <div class="horizontal-margin stargazer-scroll minimize">
       {{ range .Pages | first 3 }}
+      {{ if not .IsSection }}
       {{ .Render "views/related_view" }}
       {{ end }}
-  </div>
+      {{ end }}
+    </div>
+  {{ end }}
 {{ end }}
 
 
