@@ -1,13 +1,12 @@
   {{ $desc := .desc }}
   {{ $page := .page }}
 
-  <div class="row">
-
-    <a class="tiny-text"href="{{ $page | safeURL }}">
-      <p>uses {{ $desc }} Theme </p>
+  <div class="row str-mini-note-mediaqueried">
+    <a class="small-text str-mini-note-mediaqueried"href="{{ $page | safeURL }}">
+      <p class="small-text str-mini-note-mediaqueried" >uses {{ $desc }} Theme </p>
     </a>
     <p>✨ 👉</p>
-    <a href="https://github.com/Blackstareye">created by Blackeye ({{ partial "partials/inline/brand-github" . }}) </a>
+    <a class="small-text str-mini-note-mediaqueried" href="https://github.com/Blackstareye"><p>created by Blackeye ({{ partial "partials/inline/brand-github" . }})</p> </a>
   </div>
     
     {{ define "partials/inline/brand-github" }}

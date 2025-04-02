@@ -1,37 +1,80 @@
+$goldstop: rgba(254, 214, 50, 1);
 
-$goldstop:rgba(254, 214, 50, 1);
+$goldstop: rgba(254, 214, 50, 1);
 .str-text-fx {
-    --str-gold-stop-1: rgba(65, 63, 59, 1);
-    --str-gold-stop-2: rgba(254, 214, 50, 1);
-    --str-gold-stop-3: rgba(255, 245, 203, 1);
-    
-    --str-gold-color: linear-gradient(
-      0deg,
-      var(--str-gold-stop-1) 0%,
-      var(--str-gold-stop-2) 50%,
-      var(--str-gold-stop-3) 100%
-    );
+  --str-gold-stop-1: rgba(65, 63, 59, 1);
+  --str-gold-stop-2: rgba(254, 214, 50, 1);
+  --str-gold-stop-3: rgba(255, 245, 203, 1);
+
+  --str-gold-color: linear-gradient(
+    0deg,
+    var(--str-gold-stop-1) 0%,
+    var(--str-gold-stop-2) 50%,
+    var(--str-gold-stop-3) 100%
+  );
+  color: var(--str-gold-stop-2);
+  
+  @media screen and (min-width: 1000px) {
     background: var(--str-gold-color);
     background-clip: text;
     color: transparent;
-  
   }
-  a.str-text-fx:hover {
-    color: lighten($goldstop, 10%);
-  }
+}
+
+a.str-text-fx,button.str-text-fx {
+    background-color: transparent !important;
+}
+
+// .str-text-fx {
+//   container-name: fontcontainer;
+//   container-type: inline-size;
+//   color: var(--str-gold-stop-2);
+// }
+
+// .str-text-fx > * {
+//   color: var(--str-gold-stop-2);
+// }
+
+// @container fontcontainer (min-width: 890px) {
+
+//   .str-text-fx > * {
+
+//     > * {
+//       background: var(--str-gold-color);
+//       background-clip: text;
+//       color: transparent;
+
+//     }
+//   }
+// }
+
+a.str-text-fx:hover {
+  color: lighten($goldstop, 10%);
+}
 body.light {
-.str-text-fx {
+  .str-text-fx {
     background: none;
     background-clip: none;
     color: rgb(0, 0, 0);
-    
+  }
 }
-
-}
-
-
 
 a:hover {
   color: var(--primary);
   text-decoration-line: underline;
+}
+
+@media screen and (max-width: 390px) {
+  .str-mini-note-mediaqueried {
+    font-size: xx-small;
+  }
+  
+  .str-scale-down-mediaqueried {
+    font-size: 0.5rem;
+  }
+}
+
+
+.str-mini-note {
+  font-size: xx-small;
 }

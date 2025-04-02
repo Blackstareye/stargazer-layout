@@ -52,6 +52,9 @@ background-filter
     {{/*  Downwards anchor  */}}
     {{ partial "components/anchor.html" (dict "up" false) }}
 
+    {{ if  .Params.cite | default site.Params.cite | default false }}
+      {{ .Render "views/cite" }}
+    {{ end }}
   </article>
 </div>
 

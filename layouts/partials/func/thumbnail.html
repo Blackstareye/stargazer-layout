@@ -4,17 +4,18 @@
 {{/* {{ $founds := strings.FindRESubmatch `<(?s)img.*(src="(.+?)".*)?>` .Content }}
 */}}
 {{ $founds := strings.FindRESubmatch `<img[^>]*\bsrc=["']([^"']+)["'][^>]*>` .Content }}
+{{ $title := .Title }}
 {{/*  RE  */}}
 {{ with $founds }}  
-  {{ warnf "%s" . }}
+  {{/*  {{ warnf "%s" . }}  */}}
   {{/*  get first match  */}}
   {{ with (index . 0) }}
   {{/*  get first group match  */}}
     {{ with (index . 1) }}
-      {{ warnf "entry:%s" . }}
+      {{/*  {{ warnf "entry:%s" . }}  */}}
       {{ . | strings.TrimSpace }}
     {{ end }}
   {{ end }}
 {{ else }}
-  {{ warnf "%s" "No founds" }}
+  {{/*  {{ warnf "%s for %s" "No founds" $title }}  */}}
 {{ end }}

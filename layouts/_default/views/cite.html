@@ -1,0 +1,21 @@
+<p>{{ T "citephrase"  }}</p>
+{{ $author :=  .Params.author | default site.Params.Owner }}
+{{ $jorunal :=  .Params.journal | default  site.Home.Permalink }}
+<blockquote class="str-copycode">
+    {{$author}} {{.Params.Date.Format "Jan 2006" }}, {{site.Title }}. {{ .Title }}, {{ .Permalink }}
+</blockquote>
+
+or 
+<pre class="light-blue-border">
+
+
+    @article{ {{ printf "%s%d%s" $author .Params.Date.Year (.Title | urlize) }},
+        title = { {{.Title}} },
+        author = { {{$author}} },
+        journal = { {{$author}} },
+        year = { {{ .Params.Date.Year }} },
+        month = { {{ .Params.Date.Month }} },
+        url = { {{ .Permalink }} },
+    }
+</pre>    
+
