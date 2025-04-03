@@ -9,12 +9,16 @@ For a given taxonomy, renders a list of terms assigned to the page.
 <div class="margin"></div>
 {{- $page := .page }}
 {{- $taxonomy := .taxonomy }}
-{{- $color := .color | default  "deep-purple7" }}
+{{/*  {{- $color := .color | default  "deep-purple7" }}  */}}
+{{- $color := .color | default  "primary-text" }}
+{{- $hr := .hr | default  true }}
 
 
 {{- with $page.GetTerms $taxonomy }}
   {{- $label := (index . 0).Parent.LinkTitle }}
+  {{- if $hr -}}
   <hr>
+  {{- end -}}
   <div class="">
     <div class="row wrap padding">
       {{- range . }}

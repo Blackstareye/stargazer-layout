@@ -12,7 +12,7 @@ or
     @article{ {{ printf "%s%d%s" $author .Params.Date.Year (.Title | urlize) }},
         title = { {{.Title}} },
         author = { {{$author}} },
-        journal = { {{$author}} },
+        journal = { {{$jorunal}} },
         year = { {{ .Params.Date.Year }} },
         month = { {{ .Params.Date.Month }} },
         url = { {{ .Permalink }} },

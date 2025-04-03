@@ -27,4 +27,4 @@ features = ["minify", "fingerprint", "node-modules", "beercss", "material-3", "m
 [module]
   [module.hugoVersion]
     extended= true
-    hugoVersion=
+    #hugoVersion=

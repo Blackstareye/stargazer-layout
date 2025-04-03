@@ -15,7 +15,7 @@
         {{- with index site.Menus "main" }}
         {{ $ui_id := (printf "%s-menu-dialog" "small") }}
         <span
-          ><a class="padding round primary" data-ui="#{{$ui_id}}"><i> Menu_Open </i></a></span
+          ><a class="padding round primary" href="#{{$ui_id}}" data-ui="#{{$ui_id}}"><i> Menu_Open </i></a></span
         >
         
         {{ end }}

@@ -34,7 +34,7 @@
     </header>
   
   {{ else if hasPrefix $menuID "footer"  }}
-    <nav class="large-width center vertical">
+    <nav class="large-width center-align vertical">
       <ul class="">
           {{- partial "func/menuwalk/entry.html" (dict "page" $page "menuEntries" .) }}
       </ul>
