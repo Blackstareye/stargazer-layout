@@ -6,7 +6,9 @@
 {{ $module := .module | default true }}
 {{- $opts := dict "minify" true }}
 
-{{ if not hugo.IsProduction }}
+{{ $prodEnvs := union (slice "production") site.Params.additionalproductionenvs }}
+
+{{ if not (in  $prodEnvs hugo.Environment)   }}
   {{/* add sourcemap */}}
   {{ $opts = merge $opts (dict "sourceMap" "linked" "minify" false)  }}
 {{ end }}
@@ -23,8 +25,8 @@
       {{ $context = . | js.Build $opts }}
     {{ end }}
     {{ partial "logging/show_info" (dict "level" "debug" "pre" "Raw Context" "inner" (debug.Dump $context.RelPermalink )) }}
-    {{- if hugo.IsProduction }}
-      {{ $context = $context | fingerprint }}
+    {{- if (in  $prodEnvs hugo.Environment) }}
+      {{ $context = $context | minify | fingerprint  }}
     {{ end }}
       {{- with $context }}
         {{ partial "logging/show_info" (dict "level" "debug" "pre" "Context" "inner" (debug.Dump .RelPermalink) ) }}
@@ -33,7 +35,7 @@
           {{with $module}}
           type="module"
           {{end }}
-          {{- if hugo.IsProduction }}
+          {{- if (in  $prodEnvs hugo.Environment) }}
             integrity="{{- .Data.Integrity }}" crossorigin="anonymous"
           {{ end }}
         ></script>
@@ -45,7 +47,7 @@
 {{ if eq .assettype "css" }}
   {{ with .content }}
     {{ $prod := . }}
-    {{- if hugo.IsProduction }}
+    {{- if (in  $prodEnvs hugo.Environment) }}
       {{ $prod = . | minify | fingerprint }}
     {{ end }}
     {{ with $prod }}

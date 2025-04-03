@@ -26,13 +26,14 @@
 {{/*  are there scratches which dont want css at all ?  */}}
 {{ $nocss_custom := $.Store.Get "nocss_custom" | default false }}
 {{ $nocss_vendor := $.Store.Get "nocss_vendor" | default false }}
+{{ $nocss_dev := $.Store.Get "nocss_dev" | default false }}
 
 
 {{ range site.Params.regex_folders }}
   {{ with .vendor }}
     {{ if not $nocss_vendor}} 
       {{ range .css }}
-        {{ partial "head/css_vendor.html" . }}
+        {{- partial "head/css_vendor.html" . }}
       {{ end }}
     {{ end }}
     {{ partial "partials/inline/head/function/js" (dict "head" .head) }}
@@ -41,10 +42,19 @@
     {{/*  TODO auto import  */}}
     {{ if not $nocss_custom}} 
       {{ range .css }}
-        {{ partial "head/css_custom.html" . }}
+        {{- partial "head/css_custom.html" . }}
       {{ end }}
     {{ end }}
-    {{ partial "partials/inline/head/function/js" (dict "head" .head) }}
+    {{- partial "partials/inline/head/function/js" (dict "head" .head) }}
+  {{ end }}
+  {{ with .dev }}
+    {{/*  TODO auto import - Dev Port should also be in scripts */}}
+    {{ if not $nocss_dev}} 
+      {{ range .css }}
+        {{- partial "head/css_custom.html" . }}
+      {{ end }}
+    {{ end }}
+    {{- partial "partials/inline/head/function/js" (dict "head" .head) }}
   {{ end }}
 {{ end }}
 
@@ -69,5 +79,6 @@
         {{ end }}
   {{ end }}
 {{ end }}
+
 {{/*  {{ partial "head/css.html" . }}  */}}
 {{/*  {{ partial "head/js.html" . }}  */}}

@@ -4,7 +4,7 @@ $goldstop: rgba(254, 214, 50, 1);
 .str-text-fx {
   --str-gold-stop-1: rgba(65, 63, 59, 1);
   --str-gold-stop-2: rgba(254, 214, 50, 1);
-  --str-gold-stop-3: rgba(255, 245, 203, 1);
+  --str-gold-stop-3: rgb(221, 216, 197);
 
   --str-gold-color: linear-gradient(
     0deg,
@@ -13,8 +13,10 @@ $goldstop: rgba(254, 214, 50, 1);
     var(--str-gold-stop-3) 100%
   );
   color: var(--str-gold-stop-2);
-  
-  @media screen and (min-width: 1000px) {
+}
+
+@media screen and (min-width: 1000px) {
+  .str-text-fx-firefox {
     background: var(--str-gold-color);
     background-clip: text;
     color: transparent;

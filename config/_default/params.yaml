@@ -78,3 +78,5 @@ stargazer_layout:
       page: https://m3.material.io/
 
   
+additionalproductionenvs:
+  - "demo"

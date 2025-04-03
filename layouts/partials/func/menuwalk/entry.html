@@ -44,7 +44,7 @@
         {{- if $page.HasMenuCurrent .Menu . }}
         open
         {{ else }}
-          class="row center"
+          class=""
         {{ end }}
         >
         <summary class="none">
@@ -64,7 +64,7 @@
             </div>
         </summary>
         {{ with .Children }}
-            <ul class="none">
+            <ul class="left-align">
                 {{ partial "func/menuwalk/entry.html" (dict "page" $page "menuEntries" . )}}
             </ul>
         {{ end }}
