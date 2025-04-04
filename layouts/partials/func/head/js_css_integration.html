@@ -26,7 +26,7 @@
     {{ end }}
     {{ partial "logging/show_info" (dict "level" "debug" "pre" "Raw Context" "inner" (debug.Dump $context.RelPermalink )) }}
     {{- if (in  $prodEnvs hugo.Environment) }}
-      {{ $context = $context | minify | fingerprint  }}
+      {{ $context = $context | minify }}
     {{ end }}
       {{- with $context }}
         {{ partial "logging/show_info" (dict "level" "debug" "pre" "Context" "inner" (debug.Dump .RelPermalink) ) }}
@@ -36,7 +36,8 @@
           type="module"
           {{end }}
           {{- if (in  $prodEnvs hugo.Environment) }}
-            integrity="{{- .Data.Integrity }}" crossorigin="anonymous"
+            {{/*  integrity="{{- .Data.Integrity }}"   */}}
+            crossorigin="anonymous"
           {{ end }}
         ></script>
       {{- end }}
@@ -48,13 +49,14 @@
   {{ with .content }}
     {{ $prod := . }}
     {{- if (in  $prodEnvs hugo.Environment) }}
-      {{ $prod = . | minify | fingerprint }}
+      {{/*  {{ $prod = . | fingerprint }}  */}}
+      {{ $prod = . | minify }}
     {{ end }}
     {{ with $prod }}
       <link
         rel="stylesheet"
         href="{{ .RelPermalink }}"
-        integrity="{{ .Data.Integrity }}"
+        {{/*  integrity="{{ .Data.Integrity }}"  */}}
         crossorigin="anonymous"
       />
     {{ end }}
