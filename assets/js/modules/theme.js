@@ -11,7 +11,7 @@ function toggleTheme() {
 function init_mode() {
   if (localStorage.getItem('ui_mode')) {
     let new_mode = localStorage.getItem('ui_mode');
-    console.log(`Mode detected: ${new_mode}`);
+    // console.debug(`Mode detected: ${new_mode}`);
     _trigger_ui_mode(new_mode);
   } else {
     _trigger_ui_mode(defaultMode);
@@ -34,7 +34,7 @@ function _trigger_ui_mode(set_mode = null) {
   }
   localStorage.setItem('ui_mode', new_mode);
   _toggleIcons();
-  console.debug(`old: ${current_mode} new; ${new_mode}`);
+  // console.debug(`old: ${current_mode} new; ${new_mode}`);
 }
 
 function _toggleIcons() {
