@@ -1,3 +1,8 @@
+@mixin hovereffect () {
+    text-decoration: underline;
+    color: var(--primary);
+}
+// this is mobile drawer and dialog
 .str-nav-drawer {
     li {
         list-style: none;
@@ -5,15 +10,52 @@
             // align the menu items so that it is completely clickable
             width:100%;
             justify-content: start;
+            &:hover {
+                @include hovereffect();
+            }
+        }
+        details {
+            width: 100%;
+            justify-content: start;
+
+            > summary > div {
+                display: flex;
+                gap: 1rem;
+                &:hover {
+                    @include hovereffect();
+                }
+            }
         }
     }
-}
 
+}
 
 li > details > ul  {
     list-style-type: none;
 }
-li > details > ul > li > a.active  {
-    text-decoration: underline;
-    color: var(--primary);
+
+li > details:has(.str-details-active-flag) > summary > div  {
+    padding : 0.5rem;
+}
+
+.str-details-active-flag  {
+    @include hovereffect();
+}
+
+.str-detailfixer {
+    ul > li > details > summary > div {
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;
+        &:hover {
+            text-decoration: underline;
+            color: var(--primary);
+        }
+    }
+}
+
+.str-drawer-align {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: flex-start;
 }

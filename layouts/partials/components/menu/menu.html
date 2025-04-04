@@ -4,7 +4,7 @@
 
 {{- with index site.Menus $menuID }}
   {{ if eq $menuID "main" }}
-    <nav class="l left str-z-fix {{$navclass}}">
+    <nav class="l left str-z-fix {{$navclass}} str-detailfixer">
       <ul class="str-ul-pdding-fix">
         {{/*  walk the menu  - get the entries with <li></li> , children will be detail elements */}}
         <li>

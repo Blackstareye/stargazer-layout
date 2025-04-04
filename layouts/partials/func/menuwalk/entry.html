@@ -30,7 +30,7 @@
     {{- $attrs = merge $attrs (dict "download" $name) }}
     {{ end }}
     {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+      {{- $attrs = merge $attrs (dict "class" "active str-details-active-flag" "aria-current" "page") }}
     {{- end }}
     {{ partial "utils/print_attr.html" $attrs }}
   {{ end }}
@@ -52,19 +52,19 @@
             {{- if $page.HasMenuCurrent .Menu . }}
             {{- $attrs = (dict "class" "active secondary-container round" "aria-current" "page") }}
             {{ else }}
-            {{- $attrs = (dict "class" "center-align" "aria-current" "page") }}
+            {{- $attrs = (dict "class" "" "aria-current" "page") }}
             {{- end }}
             <div
             {{ partial "utils/print_attr.html" $attrs | safeHTMLAttr }}
             >
-            {{ with .Pre }}  
-                {{- . -}}
-            {{ end }}
-            <span>{{- partial "partials/get_name.html" . -}}</span>
+              {{ with .Pre }}  
+                  {{- . -}}
+              {{ end }}
+              <span>{{- partial "partials/get_name.html" . -}}</span>
             </div>
         </summary>
         {{ with .Children }}
-            <ul class="left-align">
+            <ul class="str-drawer-align">
                 {{ partial "func/menuwalk/entry.html" (dict "page" $page "menuEntries" . )}}
             </ul>
         {{ end }}
