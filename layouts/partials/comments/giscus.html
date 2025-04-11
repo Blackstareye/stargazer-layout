@@ -1,0 +1,33 @@
+<p>{{ T "giscus_information" | markdownify }}  </p>
+<div class="field middle-align no-margin">
+    <nav class="no-margin no-padding">
+        <div class="max">
+          <div>{{ T "enable_comment" }}</div>
+        </div>
+        <label class="switch icon str-commentswitch">
+            <input type="checkbox">
+            <span><i>Comment</i></span>
+        </label>
+      </nav> 
+</div>
+<div class="str-commentbox-hook"></div>
+
+<template id="giscus-scriptlet">
+    <script id="giscus-scriptlet-script" src="https://giscus.app/client.js"
+        data-repo="{{ site.Params.comments.giscus.repo }}"
+        data-repo-id="{{ site.Params.comments.giscus.repo_id }}"
+        data-category="{{ site.Params.comments.giscus.category }}"
+        data-category-id="{{ site.Params.comments.giscus.category_id }}"
+        data-mapping="{{ site.Params.comments.giscus.mapping }}"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="{{ site.Params.comments.giscus.input_position }}"
+        data-theme="{{ site.Params.comments.giscus.theme }}"
+        data-lang="{{ site.Params.comments.giscus.lang }}"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</template>
+  

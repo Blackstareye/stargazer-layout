@@ -23,3 +23,7 @@ dev_introduction: "Dieses Theme wurde erstellt von"
 dev_use_help: "mit Hilfe von"
 dev_uses: 'Dieses Theme benutzt %s Design Prinzipien und nutzt das CSS Framework %s and Go Hugo als statischer Website Generator'
 dev_by: "%s von %s"
+
+
+giscus_information: "Dieser Blog nutzt [giscus](https://github.com/giscus/giscus)"
+enable_comment: "Kommentarfunktion aktivieren"

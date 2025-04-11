@@ -51,6 +51,19 @@ themeColor: '#44d8f1'
 defaultMode: 'auto'
 
 
+# comments:
+#   enabled: false
+#   giscus:
+#     repo: 
+#     repo_id: 
+#     category: 
+#     category_id: 
+#     mapping: "pathname"
+#     input_position: "top"
+#     theme: "preferred_color_scheme"
+#     lang: "en"
+    # loading: 
+
 stargazer_layout:
   lorem: 'ABC'
   demo: 
@@ -80,3 +93,4 @@ stargazer_layout:
   
 additionalproductionenvs:
   - "demo"
+  - "production"
