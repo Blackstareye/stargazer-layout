@@ -1,18 +1,26 @@
 const switchquery=".str-commentswitch > input"
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(switchquery).forEach(
-        e => {
-            (e as HTMLInputElement).checked = getCommentEnabled() == 1;
-            e.addEventListener("click", onChange);
+    const commentnode = document.querySelectorAll(switchquery);
+    let handleBlogcomment = false;
+        commentnode?.forEach(
+            e => {
+                if (e) {
+                    (e as HTMLInputElement).checked = getCommentEnabled() == 1;
+                    e.addEventListener("click", onChange);
+                    handleBlogcomment = true;
+                }
+            }
+        );
+        if (handleBlogcomment) {
+            handleBlogComment();
         }
-    );
-    handleBlogComment();
+    
 });
 
 
 function getCommentEnabled () {
     let value = localStorage.getItem("enableBlogcomments");
-    console.log(value);
+    // console.log(value);
     if (value) {
         return value; 
     } else {
@@ -23,13 +31,13 @@ function getCommentEnabled () {
 
 function setCommentStatus(value : number | string) {
     localStorage.setItem("enableBlogcomments", `${value}`);
-    console.log(value);
+    // console.log(value);
 }
 
 function onChange() {
     // let value = getCommentEnabled();
     let status = (this as HTMLInputElement).checked;
-    console.log(status);
+    // console.log(status);
     setCommentStatus(status ? 1 : 0);
     handleBlogComment();
 }
@@ -38,14 +46,15 @@ function onChange() {
 function createScriptlet () {
     let template  = document.getElementById("giscus-scriptlet");
     let content = (template as  HTMLTemplateElement)?.content;
-    console.log(content);
-
-    const scriptInTemplate = content.querySelector("script");
-    const newScripttag = document.createElement("script");
-    for (const attr of scriptInTemplate.attributes) {
-        newScripttag.setAttribute(attr.name, attr.value);
-      }
-    document.querySelector(".str-commentbox-hook")?.appendChild(newScripttag);
+    // console.log(content);
+    if (content) {
+        const scriptInTemplate = content.querySelector("script") as HTMLScriptElement;
+        const newScripttag = document.createElement("script");
+        for (const attr of scriptInTemplate?.attributes) {
+            newScripttag.setAttribute(attr.name, attr.value);
+          }
+        document.querySelector(".str-commentbox-hook")?.appendChild(newScripttag);
+    }
 }
 
 function insertGiscus() {
@@ -57,7 +66,7 @@ function insertGiscus() {
 
 function removeGiscus() {
     let el = document.querySelector(".str-commentbox-hook > .giscus");
-    console.log(el);
+    // console.log(el);
     el?.remove();
 }
 
