@@ -60,7 +60,7 @@ background-filter
   </article>
 </div>
 
-{{ if .Params.comments.enabled | default site.Params.comments.enabled }}
+{{ if .Params.comments | default site.Params.comments.enabled }}
 {{ partial "comments/giscus" . }}
 {{ end }}
 

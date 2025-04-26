@@ -1,3 +1,5 @@
+<hr>
+<div class="space"></div>
 <p>{{ T "citephrase"  }}</p>
 {{ $author :=  .Params.author | default site.Params.Owner }}
 {{ $jorunal :=  .Params.journal | default  site.Home.Permalink }}
@@ -7,7 +9,6 @@
 
 or 
 <pre class="light-blue-border">
-
 
     @article{ {{ printf "%s%d%s" $author .Params.Date.Year (.Title | urlize) }},
         title = { {{.Title}} },
