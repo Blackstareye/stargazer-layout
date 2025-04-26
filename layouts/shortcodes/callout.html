@@ -1,0 +1,52 @@
+{{ $calltype := .Get "type" }}
+{{ $symbol := .Get "symbol" }}
+{{ $title := .Get "title" }}
+{{ $type := ( partial "partials/inline/callouttype" (dict "type" $calltype) ) |  default (.Get "class") | default "light-blue" }}
+{{ $symbol = ( partial "partials/inline/calloutsymbol" (dict "type" $calltype) ) |  default (.Get "symbol") | default "Info" }}
+<blockquote class="{{$type}}-border">
+<div class="bottom-margin row wrap {{$type}}-text">
+<i class="">{{$symbol}}</i>
+<p class="str-wrap-light">
+    {{- with $title | default $calltype | title  -}}
+    {{- . -}}
+    {{- end -}}
+</p>
+</div>
+{{- with .InnerDeindent -}}
+{{- . | markdownify -}}
+{{- end -}}
+</blockquote>
+
+
+
+{{ define "partials/inline/callouttype"}}
+{{ $color := ""}}
+{{ if or (eq .type "note") (eq .type "info") }}
+{{ $color = "light-blue"}}
+{{ else if eq .type "success"}}
+{{ $color = "light-green"}}
+{{ else if eq .type "error"}}
+{{ $color = "red"}}
+{{ else if eq .type "warning"}}
+{{ $color = "orange"}}
+{{ else if eq .type "tldr"}}
+{{ $color = "purple"}}
+{{ return $color}}
+{{ end }}
+{{ end }}
+
+{{ define "partials/inline/calloutsymbol"}}
+{{ $symbol := ""}}
+{{ if eq .type "note"}}
+{{ $symbol = "Info"}}
+{{ else if eq .type "success"}}
+{{ $symbol = "Check"}}
+{{ else if eq .type "error"}}
+{{ $symbol = "Error"}}
+{{ else if eq .type "warning"}}
+{{ $symbol = "Warning"}}
+{{ else if eq .type "tldr"}}
+{{ $symbol = "Quiz"}}
+{{ return $symbol}}
+{{ end }}
+{{ end }}
