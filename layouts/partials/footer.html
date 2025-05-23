@@ -12,6 +12,11 @@
         {{ partial "components/dev/footer/credits/dev_description.html" (dict "page" "https://github.com/Blackstareye/stargazer-layout" "desc" "Stargazer Layout") }}
     {{ end }}
   </div>
+  {{ if site.Params.matomo.footerInfo | default false }}
+        <div class="center-align no-margin">
+          <p class="str-mini-note-mediaqueried">{{ T "matomo" }}</p>
+        </div>
+  {{ end }}
 </div>
 
 

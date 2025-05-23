@@ -40,9 +40,6 @@
        {{ partial "footer" . }}
        {{/*  language switch  */}}
        {{/*  {{ partial "components/home/language_switch" . }}  */}}
-       {{ if site.Params.matomo.useMatomo | default false }}
-        {{ T "matomo" }}
-       {{ end }}
     </footer>
     {{ partial "partials/scripts.html" . }}
   </body>
