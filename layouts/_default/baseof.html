@@ -5,6 +5,13 @@
 >
   <head>
     {{ partial "partials/head.html" . }}
+
+    {{/*  TODO maybe import to stargazer Layout  */}}
+    {{/*  Matomo  */}}
+    {{ if site.Params.matomo.useMatomo | default false }}
+    {{ partial "components/ana/matomo.html" .Site.Params.matomo }}
+    {{ warnf "Matomo enabled - please ensure that your data privacy mentions this as well."}}
+    {{ end }}
   </head>
   <body class="dark">
     {{ partial "logging/show_info" (dict "level" "debug" "pre" "Debug Message"  "inner" (debug.Dump .Kind )) }}
@@ -33,6 +40,9 @@
        {{ partial "footer" . }}
        {{/*  language switch  */}}
        {{/*  {{ partial "components/home/language_switch" . }}  */}}
+       {{ if site.Params.matomo.useMatomo | default false }}
+        {{ T "matomo" }}
+       {{ end }}
     </footer>
     {{ partial "partials/scripts.html" . }}
   </body>

@@ -23,3 +23,5 @@ dev_by: "%s by %s"
 
 giscus_information: "This blog uses [giscus](https://github.com/giscus/giscus)"
 enable_comment: "enable comments"
+
+matomo: "Info: This Site uses Matomo with the most data privacy friendly settings and thus don't need cookies."
